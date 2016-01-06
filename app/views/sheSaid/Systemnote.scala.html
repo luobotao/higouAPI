@@ -1,0 +1,177 @@
+@(eflist:List[EndorsementSort])(wxs:WxSign)
+<!doctype html>
+<html>    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="format-detection" content="email=no" />
+        <meta name="format-detection" content="address=no;">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <link rel="stylesheet" type="text/css" href="@assets.CdnAssets.urlForAPIPublic("stylesheets/sheSaidCSS/basenote.css")" media="all">
+        <script type="text/javascript" src="@assets.CdnAssets.urlForAPIPublic("javascripts/sheSaidJs/jquery-2.1.3.min.js")"></script>
+        <title>
+            好友购买都省钱
+        </title>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="top">
+                <img src="@assets.CdnAssets.urlForAPIPublic("images/sheSaidImages/note/banner.jpg")">
+                <div class="nav">
+                	<a href="javascript:;" class='list'>省钱榜<span class='active'></span></a>                    
+                    <a href="javascript:;" class='code'>拿暗号<span></span></a>               
+                    <a href="javascript:;" class='cheap'>占便宜<span></span></a>     
+                </div>
+            </div>
+            <div class="cont">                
+                <div class="list">
+                    <ul>  
+                    <ol style="display:block;">
+                            <img src="@assets.CdnAssets.urlForAPIPublic("images/sheSaidImages/note/goodlist.jpg")">                           
+                            <div class="goodlist">                           
+                                  <p class="goodlist_txt"></p>
+                                 @if(eflist!=null){                                   
+                                  <ul>
+                                  @for(ef <- eflist){
+                                  
+                                      <li>
+                                         <em><b>@ef.getId()</b><img src="@ef.getHeadIcon()"/></em>
+                                         <p>@ef.getNickname()</p>
+                                         <span>
+                                            为好友省<b>@ef.getPlusfee()</b>元
+                                         </span>
+                                      </li>
+                                      }                                    
+                                  </ul>
+                                  }
+                            </div>  
+                        </ol>                      
+                        <ol>
+                            <img src="@assets.CdnAssets.urlForAPIPublic("images/sheSaidImages/note/code.gif")"/>
+                            <div class="code_info">
+                              <div class="code_cont">
+                                  <h2>方法一</h2>
+                                  <p>
+                                    @@嗨个购海淘  微博，<br>
+                                    每周都会发出30个暗号。<br>
+                                  </p>
+                              </div>
+                              <div class="code_cont">
+                                  <h2>方法二</h2>
+                                  <p>
+                                    <a href="/sheSaid/apply"><img src="@assets.CdnAssets.urlForAPIPublic("images/sheSaidImages/note/apply.gif")"  class="apply" /></a><br/>
+                                    点击链接申请
+                                  </p>
+                              </div>
+                              <div class="code_cont">
+                                  <h2>方法三</h2>
+                                  <p>
+                                    找已经通过申请的<br>
+                                    大明星要暗号，<br>
+                                    TA们手里可能有哦~<br>
+                                  </p>
+                              </div>
+                            </div>
+                        </ol>                        
+                        <ol>
+                            <img src="@assets.CdnAssets.urlForAPIPublic("images/sheSaidImages/note/img1_01.jpg")"/>
+                            <img src="@assets.CdnAssets.urlForAPIPublic("images/sheSaidImages/note/img1_02.jpg")"/>
+                            <img src="@assets.CdnAssets.urlForAPIPublic("images/sheSaidImages/note/img1_03.jpg")"/>
+                            <img src="@assets.CdnAssets.urlForAPIPublic("images/sheSaidImages/note/img1_04.jpg")"/>
+                            <img src="@assets.CdnAssets.urlForAPIPublic("images/sheSaidImages/note/img1_05.jpg")"/>
+                            <img src="@assets.CdnAssets.urlForAPIPublic("images/sheSaidImages/note/img1_06.jpg")"/>
+                            <img src="@assets.CdnAssets.urlForAPIPublic("images/sheSaidImages/note/img1_07.jpg")"/>
+                            <img src="@assets.CdnAssets.urlForAPIPublic("images/sheSaidImages/note/img1_08.jpg")"/>
+                        </ol>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function(){
+                  $('.nav a').on("click",function(){
+					  var index = $(this).index();
+					  $('.nav span').removeClass('active');
+					  $(this).find('span').addClass('active');
+					  $('.list ol').eq(index).show().siblings().hide();
+				  })
+            })
+        </script>  
+    </body>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script>
+    var appId="@wxs.getAppId()";
+    var timestamp="@wxs.getTimstr()";
+    var nonceStr="@wxs.getNostr()";
+    var signature="@wxs.getSign()";
+    var sharetitle="@wxs.getSharetitle()";
+    var shareimg="@wxs.getShareimg()";
+    var shareurl="@wxs.getShareurl";
+    var sharecontent="@wxs.getSharecontent()"
+    var ua = window.navigator.userAgent.toLowerCase();
+    var bw=false;
+    var iswx="1";
+    if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+    	bw=true;
+    	iswx="1";
+    }else{
+    	bw=false;
+    }
+    if(iswx=="1"){
+	  	var linkurl=location.href.split('#')[0];
+	    wx.config({
+	  		    debug: false,
+	  		    appId: appId,
+	  		    timestamp: timestamp,
+	  		    nonceStr: nonceStr,
+	  		    signature: signature,
+	  		    jsApiList: ['checkJsApi',
+	  		                'onMenuShareTimeline',
+	  		                'onMenuShareAppMessage'
+	  		    ]
+	  		  });
+	  	wx.ready(function () {
+	  		    // 1 判断当前版本是否支持指定 JS 接口，支持批量判断
+	  				wx.checkJsApi({
+	  				  jsApiList: [
+	  					'getNetworkType',
+	  					'previewImage'
+	  				  ],
+	  			  success: function (res) {
+	  					//alert(JSON.stringify(res));
+	  				  }
+	  			});
+	  	wx.onMenuShareTimeline({
+	  	    title: sharetitle, // 分享标题
+	  	    link: shareurl, // 分享链接
+	  	    imgUrl: shareimg, // 分享图标
+	  	    success: function () { 
+	  		        // 用户确认分享后执行的回调函数
+	  	    },
+	  	    cancel: function () { 
+	  	        // 用户取消分享后执行的回调函数
+	  		    }
+	  	});
+	
+	  	wx.onMenuShareAppMessage({
+	  		  title: sharetitle,
+	  		  desc: '我跟老板特别好，好友福利少不了',
+	  		  link: shareurl,
+	  		  imgUrl: shareimg,
+	  		  success: function (res) {
+	  			//alert('已分享');
+	  		  },
+	  		  cancel: function (res) {
+	  			//alert('已取消');
+	  		  }
+	  		  });
+	     });
+	     wx.error(function (res){
+	    		//alert(res.errMsg);
+	      });
+    }
+    </script>
+</html>

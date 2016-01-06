@@ -1,0 +1,13 @@
+@(tradeno:String)(totalfee:Double)(ordercode:String)(uid:Long)(pid:Long)(backurl:String)(phone:String)
+@views.html.sheSaid.main{
+
+<title>支付宝支付</title>
+
+}{
+
+}{ 
+<script type="text/javascript">
+var u="/api/alipaywap_new_H5?ordercode=@tradeno&amount=@totalfee&backurl=@backurl&pid=@pid&phone=@phone"
+window.location.href=u;
+</script>
+}

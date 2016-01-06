@@ -1,0 +1,108 @@
+@(luck:LuckDraw)(wx:WxSign)(user:User)(tip:String)@views.html.H5.act1.main{
+<title>嗨个购抽奖送礼</title>
+ <style>
+        body{
+			background:#ffdfef;
+			}
+</style>
+}{
+<div class="container">
+            <div class="banner">
+               <img src="@assets.CdnAssets.urlForAPIPublic("images/H5/act1/banner.jpg")" />
+               <div class="banner_info">
+                  <div class="banner_txt">
+                     <img src="@user.getHeadIcon()">
+                     <p>我是@user.getNickname()</p>
+                  </div>
+               </div>
+            </div>
+            <div class="gifts">
+               <img src="@assets.CdnAssets.urlForAPIPublic("images/H5/act1/banner-2.jpg")" />
+               <p>
+                 <a href="javascript:;" class="btn btn_w8">送礼给好友</a>
+               </p>
+               <p class="activity">
+                  <b>@tip</b><br>
+                  每天抽取三位免费获得代言商品。<br>
+                  将其选中代言的商品 <b>全！</b><b>部！</b><b>免！</b><b>费！</b><br>
+                  所有参加者也都会获得现金券哦~<br>
+               </p>
+            </div>
+        </div>
+        <div class="opacity" id="close"></div>
+        <div class="tip">
+           <img src="@assets.CdnAssets.urlForAPIPublic("images/H5/act1/tip.png")" />
+        </div>
+}{
+<script>
+           $(function(){
+			   $('.btn_w8').on('click',function(){
+				   $('.opacity,.tip').fadeIn('slow');
+			   });
+			   $('#close').on('click',function(){
+				   $('.opacity,.tip').fadeOut('slow');
+			   })
+			   
+		  })
+        </script> 
+<script src="@assets.CdnAssets.urlForAPIPublic("javascripts/sheSaidJs/count.js")"></script>        
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+var counturl = location.href.split('#')[0];
+  wx.config({
+    debug: false,
+    appId: '@wx.getAppId()',
+    timestamp: '@wx.getTimstr()',
+    nonceStr: '@wx.getNostr()',
+    signature: '@wx.getSign()',
+    jsApiList: ['checkJsApi',
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage'
+    ]
+  });
+	wx.ready(function () {
+    // 1 判断当前版本是否支持指定 JS 接口，支持批量判断
+		wx.checkJsApi({
+		  jsApiList: [
+			'getNetworkType',
+			'previewImage'
+		  ],
+		  success: function (res) {
+			//alert(JSON.stringify(res));
+		  }
+		});
+		wx.onMenuShareTimeline({
+		    title: '@wx.getSharetitle()', // 分享标题
+		    link: '@wx.getShareurl()', // 分享链接
+		    imgUrl: '@wx.getShareimg()', // 分享图标
+		    success: function () { 
+		        // 用户确认分享后执行的回调函数
+		        //添加统计
+				addcount('',counturl,'0','1','friendshare','@luck.getUnionid()');
+		    	window.location.href='/H5/friendlogin?aid=@luck.getId()&u=@luck.getUnionid()';
+		    },
+		    cancel: function () { 
+		        // 用户取消分享后执行的回调函数
+		    }
+		});
+
+		wx.onMenuShareAppMessage({
+			  title: '@wx.getSharetitle()',
+			  desc: '@wx.getSharecontent()',
+			  link: '@wx.getShareurl()',
+			  imgUrl: '@wx.getShareimg()',
+			  success: function (res) {
+				//alert('已分享');
+				  addcount('',counturl,'0','1','friendshare','@luck.getUnionid()');
+				  window.location.href='/H5/friendlogin?aid=@luck.getId()&u=@luck.getUnionid()';
+			  },
+			  cancel: function (res) {
+				//alert('已取消');
+			  }
+		  });
+  });
+  wx.error(function (res){
+		//alert(res.errMsg);
+  });
+</script>        
+}

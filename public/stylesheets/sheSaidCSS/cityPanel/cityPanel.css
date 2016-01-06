@@ -1,0 +1,39 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*common*/
+.f15{font-size:0.9375em;}
+.f16{font-size:1em;}
+.clearfix:after {content:".";display:block;height:0;clear:both;visibility:hidden}
+
+/*cityChoose*/
+.cityChoose_title{width:93.75%;padding:0.5em 3.125%;height:1.875em;background:#fff;border-bottom:1px solid #d9d9d9;position:absolute;left:0;top:0;}
+.cityChoose_title a{height:1.875em;line-height:1.875em;text-align:center;text-decoration:none;color:#969696;float:left;-webkit-box-sizing:border-box;-moz-box-sizing: border-box;-ms-box-sizing: border-box;-o-box-sizing:border-box;box-sizing:border-box;}
+.cityChoose_title a.province{width:36.5%;background:#ff374d url(cityChoose_province.png) center right no-repeat;background-size:1.125em 1.875em;color:#fff;border-radius:0.3em 0 0 0.3em;}
+.cityChoose_title a.market{width:34%;padding:0 0.5em 0 0;background:#e1e1e1 url(cityChoose_district.png) center right no-repeat;background-size:1.125em 1.875em;}
+.cityChoose_title a.district{width:29.5%;background:#e1e1e1;border-radius:0 0.3em 0.3em 0;}
+.cityChoose_title.level2 a.province{background:#ff374d url(cityChoose_market.png) center right no-repeat;background-size:1.125em 1.875em;border-radius:0.3em 0 0 0.3em;}
+.cityChoose_title.level2 a.market{background:#ff374d url(cityChoose_province.png) center right no-repeat;background-size:1.125em 1.875em;color:#fff;}
+
+.cityChoose_title.level3 a.province{background:#ff374d url(cityChoose_market.png) center right no-repeat;background-size:1.125em 1.875em;border-radius:0.3em 0 0 0.3em;}
+.cityChoose_title.level3 a.market{background:#ff374d url(cityChoose_market.png) center right no-repeat;background-size:1.125em 1.875em;color:#fff;}
+.cityChoose_title.level3 a.district{background:#ff374d;color:#fff;}
+
+.cityChoose_body{width:100%;position:absolute;left:0;top:2.95em;bottom:68px;}
+.cityChoose_list_title{width:96.875%;padding:0.35em 0 0.3em 3.125%;background:#efeff4;border-bottom:1px solid #e1e1e1;color:#969696;}
+.cityChoose_list_body{width:101%;background:#fff;border-bottom:1px solid #d9d9d9;}
+.cityChoose_list_body a{width:33.33%;padding:0.65em 0;text-align:center;border-top:1px solid #d9d9d9;border-right:1px solid #d9d9d9;color:#969696;text-decoration:none;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;-o-box-sizing:border-box;box-sizing:border-box;float:left;}
+.cityChoose_list_body a:active{background-color:#f8f8f8;}
+.cityChoose_list_body a:nth-child(1){border-top:none;}
+.cityChoose_list_body a:nth-child(2){border-top:none;}
+.cityChoose_list_body a:nth-child(3){border-top:none;}
+.j_fixed_btn{ display:none;}
+.cityChoose_content{
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	background:#FFF;
+	z-index:300;
+	}

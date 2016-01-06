@@ -1,0 +1,211 @@
+@(phone:String)(iswx:Integer)(ulist:List[User])(sign:WxSign)(invtecount:Integer)@views.html.H5.FreeTwo.main{
+<title>828嗨个购大学海淘节</title>
+}{
+<div class="container">
+
+            <div class="banner">
+
+                <img src="@assets.CdnAssets.urlForAPIPublic("images/H5/freetwo/banner-2.jpg")">   
+
+                <img src="@assets.CdnAssets.urlForAPIPublic("images/H5/freetwo/banner-4.jpg")"> 
+
+            </div>
+
+            <div class="contnet">
+
+                <div class="schedule">
+
+                    <p>
+
+                        下载嗨个购APP，使用填写的<br>
+
+                        @{phone}注册或登录，<br>您获得的礼品在“优惠券”中即可看到<br>
+
+                    </p>
+
+                    <p>
+
+                        <a href="http://dwz.cn/BDTux" class="btn">立即下载嗨个购</a>
+
+                    </p>                              
+
+                </div>
+
+                <div class="explain-1">
+
+                    <p>
+
+                        1.商品券在生成购物订单时可以使用。<br>
+
+                        2.每人仅限领取一次。<br>
+
+                        3.本活动最终解释权归嗨个购所有。<br>
+
+                    </p>
+
+                </div>
+				@if(iswx==1){
+                <div class="schedule">
+
+                    <p>
+
+                        <img src="@assets.CdnAssets.urlForAPIPublic("images/H5/freetwo/banner-1.jpg")">
+
+                    </p>
+
+                    <p>
+
+                        <a href="javascript:;" class="btn" id='invite'>邀请好友</a><br>
+
+                        <em>邀请好友 可以获得更多好礼</em>
+
+                    </p> 
+
+                </div>			
+                <div class="prize">
+
+                    <ul>
+
+                        <li>
+
+                            <img src="@assets.CdnAssets.urlForAPIPublic("images/H5/freetwo/prize-2.png")" class="prize-img" />
+
+                            <div class="prize-txt">
+
+                                <p>邀请8名好友，即可获得北海道马油商品券一张。</p>
+
+                                <div class="progress">
+									@if(invtecount<8){
+                                    <p style="display:block; width:@{invtecount*100/8}%;"><img src="@assets.CdnAssets.urlForAPIPublic("images/H5/freetwo/ico-1.png")"@if(invtecount==0){style=" right:2px;}></p>                           
+									}else{
+									<p style="display:block; width:100%;"><img src="@assets.CdnAssets.urlForAPIPublic("images/H5/freetwo/ico-1.png")"></p>
+									}
+                                </div>
+
+                            </div>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+			
+            <div class="border">
+
+                <img src="@assets.CdnAssets.urlForAPIPublic("images/H5/freetwo/border.jpg")" />
+
+            </div>
+
+            <div class="goods-get">
+
+                <ul>
+	@if(ulist!=null){
+                	 @for(u <- ulist){
+                    <li>
+
+                        <span><img src="@u.getHeadIcon()" /></span>
+
+                        <p>
+
+                            好友 @u.getNickname()，获得了@u.getMcode()。<br>
+
+                            @u.getToken()
+
+                        </p>
+
+                    </li>
+					}
+				}
+                </ul>
+
+            </div>
+			}
+        </div>
+            <div class="foot">
+
+                <img src="@assets.CdnAssets.urlForAPIPublic("images/H5/freetwo/foot.jpg")">
+
+            </div>
+        <div class="opacity"></div>
+
+        <div class="pup-tip">
+
+            <img src="@assets.CdnAssets.urlForAPIPublic("images/H5/freetwo/pup-tip.png")"/>
+
+        </div>
+}{
+ <script>
+
+ $(function(){
+	  $('#invite').on("click",function(){				  
+		  $('.opacity,.pup-tip').fadeIn("slow");
+		  setTimeout(function(){
+			  $('.opacity,.pup-tip').fadeOut("slow");
+		  },2000)
+		  
+	  })
+	  //$('.opacity').on("click",function(){
+		  
+	  //}) 
+  })
+        </script>
+<!-- 微信分享 -->
+@if(sign!=null){
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script>
+  wx.config({
+    debug: false,
+    appId: '@sign.getAppId()',
+    timestamp: '@sign.getTimstr()',
+    nonceStr: '@sign.getNostr()',
+    signature: '@sign.getSign()',
+    jsApiList: ['checkJsApi',
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage'
+    ]
+  });
+	wx.ready(function () {
+    // 1 判断当前版本是否支持指定 JS 接口，支持批量判断
+		wx.checkJsApi({
+		  jsApiList: [
+			'getNetworkType',
+			'previewImage'
+		  ],
+		  success: function (res) {
+			//alert(JSON.stringify(res));
+		  }
+		});
+		wx.onMenuShareTimeline({
+		    title: '@sign.getSharetitle()', // 分享标题
+		    link: '@sign.getShareurl()', // 分享链接
+		    imgUrl: '@sign.getShareimg()', // 分享图标
+		    success: function () { 
+		        // 用户确认分享后执行的回调函数
+		    },
+		    cancel: function () { 
+		        // 用户取消分享后执行的回调函数
+		    }
+		});
+
+		wx.onMenuShareAppMessage({
+			  title: '@sign.getSharetitle()',
+			  desc: '@sign.getSharecontent()',
+			  link: '@sign.getShareurl()',
+			  imgUrl: '@sign.getShareimg()',
+			  success: function (res) {
+				//alert('已分享');
+				  $('.opacity,.pup-tip').fadeOut("slow");
+			  },
+			  cancel: function (res) {
+				//alert('已取消');
+			  }
+		  });
+  });
+  wx.error(function (res){
+		//alert(res.errMsg);
+  });
+</script>
+}        
+}

@@ -1,0 +1,109 @@
+@(aid:String)(uid:String)(wx:WxSign)(luck:LuckDraw)@views.html.H5.act1.main{
+<title>嗨个购抽奖送礼</title>
+}{
+<div class="receive">
+           <img src="@assets.CdnAssets.urlForAPIPublic("images/H5/act1/banner-1.png")"/>
+           <p><input type="text" class="input" placeholder="请输入手机号" id="phone" name="phone" /></p>
+           <p onclick="checksubmit()"><a href="#" class="btn">确定</a></p>
+           <p id="errmsg"></p>
+        </div>
+}{
+<script src="@assets.CdnAssets.urlForAPIPublic("javascripts/sheSaidJs/alert.js")"></script>
+<script>
+function checksubmit(){
+	var reg = /^1\d{10}$/g; 
+	var ss=true;
+	if(!reg.test(document.getElementById("phone").value)){
+		//_alert("请输入正确的手机号!");
+		document.getElementById("errmsg").innerHTML="请输入正确的手机号";
+		ss=false;
+	}
+	if(ss==true){
+		var phone=document.getElementById("phone").value;
+		$.ajax({
+		    type:"POST",
+		    url:"/H5/updateluck",
+		    //提交的数据
+		    data:{id:'@aid',phone:phone,u:'@uid'},
+		    //返回数据的格式
+		    datatype: "json",//"xml", "html", "script", "json", "jsonp", "text",
+		    //在请求之前调用的函数
+		    beforeSend:function(){},
+		    //成功返回之后调用的函数            
+		    success:function(data){		            	
+		  		if(data.status=="1"){
+		  			window.location.href="/H5/friendcoupon?aid=@aid";
+		  		}else{
+		  			_alert(data.msg);
+		  		}
+		    }   ,
+		    //调用执行后调用的函数
+		    complete: function(XMLHttpRequest, textStatus){
+		    },
+		    //调用出错执行的函数
+		    error: function(){
+		        //请求出错处理
+		        _alert("请检查一下网络!");
+		    }        
+		 });
+	}
+}
+</script>
+<script src="@assets.CdnAssets.urlForAPIPublic("javascripts/sheSaidJs/count.js")"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+var counturl = location.href.split('#')[0];
+  wx.config({
+    debug: false,
+    appId: '@wx.getAppId()',
+    timestamp: '@wx.getTimstr()',
+    nonceStr: '@wx.getNostr()',
+    signature: '@wx.getSign()',
+    jsApiList: ['checkJsApi',
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage'
+    ]
+  });
+	wx.ready(function () {
+    // 1 判断当前版本是否支持指定 JS 接口，支持批量判断
+		wx.checkJsApi({
+		  jsApiList: [
+			'getNetworkType',
+			'previewImage'
+		  ],
+		  success: function (res) {
+			//alert(JSON.stringify(res));
+		  }
+		});
+		wx.onMenuShareTimeline({
+		    title: '@wx.getSharetitle()', // 分享标题
+		    link: '@wx.getShareurl()', // 分享链接
+		    imgUrl: '@wx.getShareimg()', // 分享图标
+		    success: function () { 
+		        // 用户确认分享后执行的回调函数
+		    	addcount('',counturl,'0','1','friendshare','@luck.getUnionid()');
+		    },
+		    cancel: function () { 
+		        // 用户取消分享后执行的回调函数
+		    }
+		});
+
+		wx.onMenuShareAppMessage({
+			  title: '@wx.getSharetitle()',
+			  desc: '@wx.getSharecontent()',
+			  link: '@wx.getShareurl()',
+			  imgUrl: '@wx.getShareimg()',
+			  success: function (res) {
+				//alert('已分享');
+				  addcount('',counturl,'0','1','friendshare','@luck.getUnionid()');
+			  },
+			  cancel: function (res) {
+				//alert('已取消');
+			  }
+		  });
+  });
+  wx.error(function (res){
+		//alert(res.errMsg);
+  });
+</script>
+}

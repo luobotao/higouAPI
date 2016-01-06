@@ -1,0 +1,24 @@
+@(fp:String)@views.html.H5.FreeTwo.main{
+<title>828嗨个购大学生海淘节</title>
+}{
+}{
+<script language="javascript">
+var ua = window.navigator.userAgent.toLowerCase();
+var bw=false;
+
+if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+	bw=true;
+}else{
+	bw=false;
+}
+var wx="";
+if(bw)
+	wx="1";
+
+if(wx=="1"){
+	window.location.href="/H5/freetwowxauth?fp=@fp";
+}else{
+	window.location.href="/H5/freetwoget?iswx=0";
+}
+</script>
+}

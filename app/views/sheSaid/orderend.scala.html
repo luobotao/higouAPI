@@ -1,0 +1,16 @@
+@(gourl:String)(postmanid:String)@views.html.sheSaid.main{
+<title>支付成功</title>
+}{
+<div class="container">
+            <div class="orderSuccess">
+                <i class="ico-success-max"></i><br>
+                订单支付成功
+                <p>
+                  <a href="javascript:;" onclick="javascript:window.location.href='@assets.CdnAssets.H5_SHOPPING_URL(postmanid)'" class="btn-blank">继续逛逛</a><br>
+                  <a href="@gourl" class="btn-blank">查看订单</a>
+                </p>
+            </div>
+        </div>
+}{
+<script type="text/javascript" src="@assets.CdnAssets.urlForAPIPublic("javascripts/sheSaidJs/noShareWX.js")"></script>
+}

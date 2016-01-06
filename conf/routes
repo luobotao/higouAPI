@@ -1,0 +1,269 @@
+# routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET    /                                      controllers.Application.index()
+GET    /test                                  controllers.Application.test()
+GET    /wx/*name                              controllers.Application.wx(name)
+GET    /testRabbitMQ                          @controllers.Application.testRabbitMQ()
+GET    /validateImage                         controllers.Application.imageValidate()
+
+# sub routes
+->     /sheSaid                               sheSaid.Routes
+->     /H5                                    H5.Routes
+
+# Map static resources from the /public folder to the /assets URL path
+GET    /public/*file                          controllers.Assets.at(path="/public", file)
+GET    /upload/*file                          controllers.Assets.at(path="/upload", file)
+
+
+GET    /api/adbanner                          @controllers.Application.adbanner()
+GET    /api/getAlipayLoginUrl                 @controllers.Application.getAlipayLoginUrl()
+GET    /api/loading                           @controllers.Application.loading()
+GET    /api/appversion                        @controllers.Application.appversion()
+GET    /api/getSinaData                       @controllers.Application.getSinaData()
+GET    /api/aliPaylogin                       @controllers.Application.aliPaylogin()
+
+
+# User API
+GET    /api/userLogin                         @controllers.api.UserAPIController.userLogin
+GET    /api/getuserview                       @controllers.api.UserAPIController.getUserView
+POST   /api/checkUserVerify                   @controllers.api.UserAPIController.checkUserVerify
+POST   /api/userRegister                      @controllers.api.UserAPIController.userRegister
+POST   /api/postErrorLog                      @controllers.api.UserAPIController.postErrorLog
+GET    /api/pcheckpresell                     @controllers.api.UserAPIController.pcheckpresell
+GET    /api/user_notice                       @controllers.api.UserAPIController.user_notice
+POST   /api/userlike_add                      @controllers.api.UserAPIController.userlike_add
+POST   /api/userlike_del                      @controllers.api.UserAPIController.userlike_del
+GET    /api/userbindphone                     @controllers.api.UserAPIController.userbindphone
+GET    /api/usergetverify                     @controllers.api.UserAPIController.usergetverify
+GET    /api/getVoiceVerifyCode                @controllers.api.UserAPIController.getVoiceVerifyCode
+POST   /api/userunbind                        @controllers.api.UserAPIController.userunbind
+GET    /api/checkbind                         @controllers.api.UserAPIController.checkbind
+GET    /api/pcheck                            @controllers.api.UserAPIController.pcheck
+POST   /api/feedback                          @controllers.api.UserAPIController.feedback
+POST   /api/devlogin                          @controllers.api.UserAPIController.devlogin
+GET    /api/userlike_mouldlist                @controllers.api.UserAPIController.userlike_mouldlist
+GET    /api/guesslike_list                    @controllers.api.UserAPIController.guesslike_list
+
+
+# comment API
+POST   /api/comment_add                       @controllers.api.CommentAPIController.comment_add
+GET    /api/comment_list                      @controllers.api.CommentAPIController.comment_list
+
+
+# product API
+GET    /api/product                           @controllers.api.ProductAPIController.productDetail
+GET    /api/product_wish                      @controllers.api.ProductAPIController.productWish
+GET    /api/product_presell                   @controllers.api.ProductAPIController.product_presell
+GET    /api/search_mouldlist                  @controllers.api.ProductAPIController.search_mouldlist
+GET    /api/product_recom                     @controllers.api.ProductAPIController.product_recom
+GET    /api/product_lovely                    @controllers.api.ProductAPIController.product_lovely
+GET    /api/products_check                    @controllers.api.ProductAPIController.products_check
+
+# shoppingCart API
+GET    /api/shoppingCart_list                 @controllers.api.ShoppingCartAPIController.shoppingCart_list
+POST   /api/shoppingCart_new                  @controllers.api.ShoppingCartAPIController.shoppingCart_new
+GET    /api/shoppingCart_del                  @controllers.api.ShoppingCartAPIController.shoppingCart_del
+GET    /api/shoppingCart_count                @controllers.api.ShoppingCartAPIController.shoppingCart_count
+GET    /api/shoppingCart_edit                 @controllers.api.ShoppingCartAPIController.shoppingCart_edit
+GET    /api/shoppingCart_lovely               @controllers.api.ShoppingCartAPIController.shoppingCart_lovely
+
+# address API
+GET    /api/address_list                      @controllers.api.AddressAPIController.address_list
+POST   /api/address_new                       @controllers.api.AddressAPIController.address_new
+POST   /api/address_edit                      @controllers.api.AddressAPIController.address_edit
+GET    /api/address_default                   @controllers.api.AddressAPIController.address_default
+GET    /api/address_setdefault                @controllers.api.AddressAPIController.address_setdefault
+GET    /api/address_del                       @controllers.api.AddressAPIController.address_del
+
+# coupon API
+GET    /api/coupon_exchange                   @controllers.api.CouponAPIController.coupon_exchange
+GET    /api/coupon_list                       @controllers.api.CouponAPIController.coupon_list
+GET    /api/payEnd                            @controllers.api.CouponAPIController.payEnd		
+
+# channel API
+GET    /api/channel                           @controllers.api.ChannelAPIController.channel
+GET    /api/channel_mouldlist                 @controllers.api.ChannelAPIController.channel_mouldlist
+
+# subject API
+GET    /api/subject_mouldlist                 @controllers.api.SubjectAPIController.subject_mouldlist
+
+# shoppingOrder API
+GET    /api/pardels_del                       @controllers.api.OrderAPIController.pardels_del
+GET    /api/shoppingOrder_cancel              @controllers.api.OrderAPIController.shoppingOrder_cancel
+GET    /api/shoppingOrder_del                 @controllers.api.OrderAPIController.shoppingOrder_del
+GET    /api/shoppingOrder_list                @controllers.api.OrderAPIController.shoppingOrder_list
+POST   /api/shoppingOrder_new                 @controllers.api.OrderAPIController.shoppingOrder_new
+POST   /api/shoppingOrder_pay                 @controllers.api.OrderAPIController.shoppingOrder_pay
+GET    /api/shoppingOrder_cost                @controllers.api.OrderAPIController.shoppingOrder_cost
+GET    /api/shoppingOrder_costpresell         @controllers.api.OrderAPIController.shoppingOrder_costpresell
+GET    /api/shoppingOrder_Info                @controllers.api.OrderAPIController.shoppingOrder_Info
+GET    /api/shoppingOrder_Info_presell        @controllers.api.OrderAPIController.shoppingOrder_Info_presell
+GET    /api/shoppingOrder_wayBill             @controllers.api.OrderAPIController.shoppingOrder_wayBill()
+GET    /api/checkopencardId                   @controllers.api.OrderAPIController.checkopencardId()
+GET    /api/checkopencardIdByPid              @controllers.api.OrderAPIController.checkopencardIdByPid()
+
+
+# WXPay routes
+GET    /api/WXPay/getSignAndPrepayID          controllers.api.WXPayAPIController.getSignAndPrepayID
+POST   /api/wxprepay                          controllers.api.WXPayAPIController.wxprepay
+POST   /api/wxpayWapNotify                    @controllers.api.WXPayAPIController.wxpayWapNotify
+GET    /api/wxpayWapNotify                    @controllers.api.WXPayAPIController.wxpayWapNotify
+POST   /api/wxcallback                        @controllers.api.WXPayAPIController.wxcallback
+GET    /api/wxpayWapCallback                  @controllers.api.WXPayAPIController.wxcallback
+GET    /api/wxpayreturnjsapi                  @controllers.api.WXPayAPIController.WXpayreturnJSAPI
+POST   /api/wxpayreturnjsapi                  @controllers.api.WXPayAPIController.WXpayreturnJSAPI
+
+# AliPay routes
+POST   /api/alipay_sign                       controllers.api.AliPayAPIController.alipay_sign
+POST   /api/alipayWapNotify                   @controllers.api.AliPayAPIController.alipayWapNotify
+GET    /api/alipayWapReturn                   @controllers.api.AliPayAPIController.alipayWapReturn
+GET    /api/alipayWapMerchant                 @controllers.api.AliPayAPIController.alipayWapMerchant
+POST   /api/alipayFastNotify                  @controllers.api.AliPayAPIController.alipayFastNotify
+GET    /api/alipayFastReturn                  @controllers.api.AliPayAPIController.alipayFastReturn
+GET    /api/alipaywap                         controllers.api.AliPayAPIController.alipaywap_new
+GET    /api/alipaywapendorse                  @controllers.api.AliPayAPIController.alipaywap_new_endorse
+GET    /api/alipaywap_new_H5                  @controllers.api.AliPayAPIController.alipaywap_new_H5
+POST   /api/alipay_callback                   @controllers.api.AliPayAPIController.alipay_callback
+POST   /api/coupon_callback                   @controllers.api.AliPayAPIController.coupon_callback
+POST   /api/userbalance_callback              @controllers.api.AliPayAPIController.userBalance_callback
+GET    /api/alipaylogin                       @controllers.api.AliPayAPIController.authorize
+GET    /api/AliPay/authorizeReturn            @controllers.api.AliPayAPIController.authorizeReturn
+POST   /api/AliPay/authorizeReturn            @controllers.api.AliPayAPIController.authorizeReturn
+
+POST   /api/alipayInternational_sign          controllers.api.AliPayAPIController.alipayInternational_sign
+POST   /api/alipayInternational_callback      @controllers.api.AliPayAPIController.alipayInternational_callback
+POST   /api/alipayFTNotify                    @controllers.api.AliPayAPIController.alipayFTNotify
+
+
+# KDT routes
+POST   /api/Kdt/productAdd                    controllers.api.KdtAPIController.productAdd
+POST   /api/Kdt/getProduct                    controllers.api.KdtAPIController.getProduct
+POST   /api/Kdt/deleteProduct                 controllers.api.KdtAPIController.deleteProduct
+POST   /api/Kdt/productUpdate                 controllers.api.KdtAPIController.productUpdate
+POST   /api/Kdt/getTrades                     controllers.api.KdtAPIController.getTrades
+GET    /api/Kdt/getCategories                 controllers.api.KdtAPIController.getCategories
+GET    /api/Kdt/getCategoriesTags             controllers.api.KdtAPIController.getCategoriesTags
+
+
+
+GET    /api/adbanner                          @controllers.Application.adbanner()
+#kuaidi100
+GET    /api/queryOrderDetail                  controllers.Application.queryOrderDetail()
+GET    /api/subscribe                         controllers.Application.subscribe()
+GET    /api/kuaidi100_callback                controllers.Application.kuaidi100_callback()
+
+
+# Endorsement
+GET    /api/getendorsproduct                  @controllers.api.ProductAPIController.product_Endorsement
+GET    /api/getendors                         @controllers.api.EndorsementController.getEndorsementlist
+GET    /api/enderspraise                      @controllers.api.EndorsementController.endorsementPraise
+GET    /api/unenderspraise                    @controllers.api.EndorsementController.unendorsPraise
+GET    /api/checkendorsement                  @controllers.api.EndorsementController.isEndorsementUser
+GET    /api/checkendorsementcode              @controllers.api.EndorsementController.checkEndorsementCode
+GET    /api/checkendorseproduct               @controllers.api.EndorsementController.checkEndorseproduct
+GET    /api/getroundcontent                   @controllers.api.EndorsementController.getRoundContent
+POST   /api/addendorsement                    @controllers.api.EndorsementController.addendorse
+GET    /api/endorsedetail                     @controllers.api.EndorsementController.endorseDetail
+POST   /api/edituserinfo                      @controllers.api.EndorsementController.editUserInfo
+GET    /api/getendorspaylist                  @controllers.api.EndorsementController.getendorsPaylist
+GET    /api/getbalanceloglist                 @controllers.api.EndorsementController.getbalanceLoglist
+GET    /api/getpaymoney                       @controllers.api.EndorsementController.getPayMoney
+GET    /api/opermoney                         @controllers.api.EndorsementController.OperMoney
+POST   /api/opermoney                         @controllers.api.EndorsementController.OperMoney
+GET    /api/editusercard                      @controllers.api.EndorsementController.edituserCard
+POST   /api/uploadimg                         @controllers.api.EndorsementController.uploadfile
+POST   /api/uploadcardimg                     @controllers.api.EndorsementController.uploadCard
+POST   /api/addendosephp                      @controllers.api.EndorsementController.addendosephp
+POST   /api/report                            @controllers.api.EndorsementController.report
+POST   /api/delendoresement                   @controllers.api.EndorsementController.delendoresement
+GET    /api/delendoresement                   @controllers.api.EndorsementController.delendoresement
+POST   /api/editendorsement                   @controllers.api.EndorsementController.editendorse
+
+# MeiQia
+#POST	/api/meiqia									@controllers.api.UserAPIController.getMeiQia
+#GET	/api/getHash1								@controllers.api.MannarenAPIController.getHash1
+POST   /api/getStock                          @controllers.api.MannarenAPIController.GettestStockGet
+POST   /api/addProduct                        @controllers.api.MannarenAPIController.addProduct
+GET    /api/addAllProduct                     @controllers.api.MannarenAPIController.addAllProduct
+POST   /api/deleteProductBySku                @controllers.api.MannarenAPIController.deleteProductBySku
+POST   /api/addOrder                          @controllers.api.MannarenAPIController.addOrder
+POST   /api/getDeliveryCodeByPardelCode       @controllers.api.MannarenAPIController.getDeliveryCodeByPardelCode
+GET    /api/deleteAllProduct                  @controllers.api.MannarenAPIController.deleteAllProduct
+POST   /api/updateProduct                     @controllers.api.MannarenAPIController.updateProduct
+POST   /api/getStockInfoByNewSku              @controllers.api.MannarenAPIController.getStockInfoByNewSku
+POST   /api/piliangAddOrder                   @controllers.api.MannarenAPIController.piliangAddOrder
+POST   /api/updateTradeRefund                 @controllers.api.MannarenAPIController.updateTradeRefund
+#用于定时同步ERP
+GET    /api/doJobWithGetMailNo                @controllers.api.MannarenAPIController.doJobWithGetMailNo
+GET    /api/doJobWithUpdateProduct            @controllers.api.MannarenAPIController.doJobWithUpdateProduct
+GET    /api/doJobWithAddOrder                 @controllers.api.MannarenAPIController.doJobWithAddOrder
+GET    /api/doJobWithAddProduct               @controllers.api.MannarenAPIController.doJobWithAddProduct
+GET    /api/doJobWithUpdateProductStock       @controllers.api.MannarenAPIController.doJobWithUpdateProductStock
+GET    /api/sendStockInfos                    @controllers.api.MannarenAPIController.sendStockInfos
+GET    /api/sendOverStockInfos                @controllers.api.MannarenAPIController.sendOverStockInfos
+GET    /api/doJobWithAddErrorOrder            @controllers.api.MannarenAPIController.doJobWithAddErrorOrder
+
+#海关
+GET    /api/sendCustomsOrder                  @controllers.api.MannarenAPIController.sendCustomsOrder
+GET    /api/sendCustomsPay                    @controllers.api.MannarenAPIController.sendCustomsPay
+GET    /api/sendCustomsWaybill                @controllers.api.MannarenAPIController.sendCustomsWaybill
+
+#2.1版本接口
+GET    /api/productDetailEndorsements         @controllers.api.ProductAPIController.DetailTopEndorsements
+GET    /api/productDetailAllEndorsements      @controllers.api.EndorsementController.DetailAllEndorsements
+GET    /api/preSearchInfo                     @controllers.api.ProductAPIController.preSearchInfo
+GET    /api/usercenterShowInvitation          @controllers.api.ProductAPIController.usercenterShowInvitation
+GET    /api/inviteFriends                     @controllers.api.ProductAPIController.inviteFriends
+GET    /api/getRedFlag                        @controllers.api.UserAPIController.getRedFlag
+POST   /api/createAndPayOrder                 @controllers.api.OrderAPIController.createAndPayOrder
+POST   /api/payOrder                          @controllers.api.OrderAPIController.payOrder
+GET    /api/resetMeiChatMsgRedDot             @controllers.api.UserAPIController.resetMeiChatMsgRedDot
+POST   /api/checkidfa                         @controllers.api.UserAPIController.checkidfa
+POST   /api/uploadStatData                    @controllers.api.UserAPIController.uploadStatData
+GET    /api/getEaseMobAuthInfo                @controllers.api.UserAPIController.getEaseMobAuthInfo
+
+# AppPad API
+POST   /api/pad_login                         @controllers.api.AppPadAPIController.padLogin
+GET    /api/pad_logout                        @controllers.api.AppPadAPIController.padLogout
+GET    /api/pad_channels                      @controllers.api.AppPadAPIController.pad_channels
+GET    /api/pad_channel_list                  @controllers.api.AppPadAPIController.pad_channel_list
+GET    /api/pad_product_detail                @controllers.api.AppPadAPIController.pad_product_detail
+GET    /api/pad_search_list                   @controllers.api.AppPadAPIController.pad_search_list
+
+# AppSalesManAPI API
+GET    /api/salesman/shoppingcar_list         @controllers.api.AppSalesManAPIController.shoppingcar_list
+POST   /api/salesman/shoppingcar_add          @controllers.api.AppSalesManAPIController.shoppingcar_add
+POST   /api/salesman/shoppingcar_del          @controllers.api.AppSalesManAPIController.shoppingcar_del
+POST   /api/salesman/shoppingcar_edit         @controllers.api.AppSalesManAPIController.shoppingcar_edit
+GET    /api/salesman/customer_list            @controllers.api.AppSalesManAPIController.customer_list
+GET    /api/salesman/shoppingorder_cost       @controllers.api.AppSalesManAPIController.shoppingOrder_cost
+GET    /api/salesman/shoppingorder_detail     @controllers.api.AppSalesManAPIController.shoppingOrder_Info
+POST   /api/salesman/shoppingorder_new        @controllers.api.AppSalesManAPIController.shoppingOrder_new
+GET    /api/salesman/customer_search          @controllers.api.AppSalesManAPIController.customer_search
+GET    /api/salesman/customeraddress_list     @controllers.api.AppSalesManAPIController.customeraddress_list
+POST   /api/salesman/customeraddress_delete   @controllers.api.AppSalesManAPIController.customeraddress_delete
+POST   /api/salesman/customerinfo_editor      @controllers.api.AppSalesManAPIController.customerinfo_editor
+POST   /api/salesman/login                    @controllers.api.AppSalesManAPIController.login
+POST   /api/salesman/register                 @controllers.api.AppSalesManAPIController.register
+GET    /api/salesman/logout                   @controllers.api.AppSalesManAPIController.logout
+GET    /api/salesman/verifycode               @controllers.api.AppSalesManAPIController.usergetverify
+POST   /api/salesman/devlogin                 @controllers.api.AppSalesManAPIController.devlogin
+POST   /api/salesman/password_modify          @controllers.api.AppSalesManAPIController.password_modify
+POST   /api/salesman/orderpay_callback        @controllers.api.AppSalesManAPIController.orderpay_callback
+GET    /api/salesman/homepage_list            @controllers.api.AppSalesManAPIController.homepage_list
+GET    /api/salesman/getwalletpaylist         @controllers.api.AppSalesManAPIController.getwalletpaylist
+POST   /api/salesman/checkregistcode          @controllers.api.AppSalesManAPIController.checkregistcode
+POST   /api/salesman/shoppingorder_pay        @controllers.api.AppSalesManAPIController.shoppingorder_pay
+GET    /api/salesman/shoppingOrder_cancel     @controllers.api.OrderAPIController.shoppingOrder_cancel
+GET    /api/salesman/shoppingOrder_del        @controllers.api.OrderAPIController.shoppingOrder_del
+GET    /api/salesman/shoppingOrder_list       @controllers.api.OrderAPIController.shoppingOrder_list
+POST   /api/salesman/userwallet_extract       @controllers.api.EndorsementController.OperMoney
+GET    /api/salesman/shoppingOrder_wayBill    @controllers.api.OrderAPIController.shoppingOrder_wayBill
+POST   /api/salesman/userverify_check         @controllers.api.AppSalesManAPIController.checkUserVerify
+GET    /api/salesman/getSignAndPrepayID       controllers.api.AppSalesManAPIController.getSignAndPrepayID
+GET    /api/salesman/pardels_del              @controllers.api.OrderAPIController.pardels_del
+GET    /api/salesman/products_check           @controllers.api.AppSalesManAPIController.products_check
+GET    /adv/*file   						  controllers.Assets.versioned(path="/public/html", file: Asset)

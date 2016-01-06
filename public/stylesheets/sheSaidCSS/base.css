@@ -1,0 +1,1190 @@
+﻿ @charset "utf-8";
+
+/* base */
+
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,div,th,td,dl,dd,form,fieldset,legend,input,textarea,select{ margin:0px; padding:0px; box-sizing: content-box;}
+body{font:15px/26px Microsoft YaHei,helvetica,arial;-webkit-text-size-adjust:100%; background:#f7f4ef; color:#303030;max-width:640px;margin: 0 auto;}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+  display: block;
+  margin:0px; padding:0px; box-sizing: content-box;
+}
+h1,h2,h3,h4,h5,h6,i,samp,strong,span,a,li{;font-size:inherit; font-weight:normal;}
+address,cite,code,em,th,i{font-weight:normal; font-style:normal;} 
+a{color:#2d374b;text-decoration:none;}
+a:hover{text-decoration:none;}
+li{list-style:none}
+img{border:0;vertical-align:middle;}
+table{border-collapse:collapse;border-spacing:0}
+p{word-wrap:break-word;}
+textarea{resize:none;}
+fieldset {border: none;}
+label,a,button,input,textarea{
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	font:15px/26px Microsoft YaHei,helvetica,arial;
+	border:none;
+	outline:none;
+    -webkit-appearance: none;
+    -webkit-box-sizing: content-box;
+}
+
+.cont{	
+	margin-top:0px;	
+	border-top:0px solid #e0e0e0;
+	background:#FFF;
+	border-bottom:1px solid #e0e0e0;
+	overflow:hidden;
+	position:relative;
+	min-height:40px;
+	}
+/*ico图标*/
+i,.ico_top,.h5_like_r{
+	display: inline-block;
+	background: url(/public/images/sheSaidImages/ico.png?3) no-repeat left top;
+	background-size: 40px 400px;
+}
+.ico_arrow_right{
+	position: absolute;
+	top: 50%;
+	right: 2%;
+	width: 12px;
+	height: 14px;
+	margin: -7px 0 0 0;
+	background-position: 0 -70px;
+	z-index: 10;
+}
+.new_check{
+	width: 14px;
+	height: 14px;
+	margin-right:6px;
+	background-position: 0 -47px;
+	vertical-align:middle;
+	}
+.ico_number_cut,.ico_number_add{
+	width:20px;
+	height:20px;
+	background-position: -1px -90px;
+	vertical-align:middle;
+	}
+.ico_number_cut{
+	background-position: -1px -114px;
+	}
+.ico_number_cut_h{
+	background-position: -19px -279px;
+	}	
+.ico_number_add_h{
+	background-position: -19px -257px;
+	}	
+.ico_top{
+	position: fixed;
+	bottom:60px;
+	right:10px;
+	width:36px;
+	height:36px;
+	background-position: 0 -140px;
+	}
+/*登录*/
+.login{
+	background:#FFF;
+	border-bottom:1px solid #e0e0e0;
+	}
+.input-wrap{
+	margin:0 10px;
+	border-top:1px solid #e0e0e0;
+	padding:20px 0;
+	position:relative;
+	}
+.input-wrap-b{
+	border:none;}	
+.input{
+	width:60%;
+	padding-left:20px;
+	font-size:15px;
+	background: url(/public/images/sheSaidImages/ico.png) no-repeat 2px 6px;
+	background-size: 40px 400px;
+}
+.letter{
+	background-position: left -17px;
+	}
+		  /*弹窗*/
+		  .pop-code{
+			  position:fixed;
+			  top:50%;
+			  left:8%;
+			  width:84%;
+			  background:#faf9f8;
+			  border-radius:6px;
+			  text-align:center;
+			  margin-top:-150px;
+			  box-shadow:0 0 3px #88898f;			  
+		   }
+		  .pop-code section{
+			  padding:35px;
+			  }
+		  .pop-code div{
+			  margin:20px 0;
+			  overflow:hidden;
+			  }	
+		  .pop-code .imgcode{
+			  float:right;
+			  width:30%;
+			  height:34px;
+			  border:1px solid #dbdbde;
+			  } 
+		  .pop-code-ico{
+			  width:70px;
+			  }	
+		  .pop-code-input{
+			  float:left;
+			  width:61%;
+			  padding:0 2%;
+			  border-radius:3px;
+			  height:14px;
+			  padding:10px 2%;
+			  vertical-align:top;
+			  border:1px solid #dbdbde;
+			  }	 	
+.protocol{
+	margin:0 10px;
+	text-align:center;
+	}
+.protocol p:first-child{
+	padding:10px 0;
+	}	
+	
+/*订单结算*/
+.address{
+	position: relative;
+	background:url(/public/images/sheSaidImages/addressbg.jpg) repeat-y center top;
+	background-size:100%;
+	border-bottom:1px solid #e0e0e0;
+}
+.address img{
+	width: 100%;
+}
+.address_info{
+	border-left:1px solid #ff314e;
+	margin-left:10px;
+	padding:25px 0 20px 10px;
+}
+.address_info .name{
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 26px;
+	padding-bottom: 6px;
+}
+.address_info .txt{
+	color: #8e9195;	
+	padding: 0 0 4px 0;
+	margin-right: 12%;
+}
+.address_info span{
+	display:block;
+	height:22px;
+	border-bottom: 1px solid #7a7a7a;
+	margin-bottom:4px;
+	}
+.product{
+	padding:15px 10px;
+	}
+.product_img{
+	float:left;
+	width:70px;
+	height:70px;
+	}
+.product_img img{
+	width:70px;
+	height:70px;
+	border:1px solid #e4e4e4;
+	}
+.product_neme{
+	 margin-left:80px;
+	line-height:20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+	}
+.product_info{
+	position:absolute;
+	left:90px;
+	right:10px;
+	bottom:15px;
+	}
+.product_info span{
+	float:left;
+	color:#85888d;
+	}	
+.product_info em{
+	float:right;
+	color:#ff314e;
+	font-weight:800;
+	}
+.product_info b{
+	display:inline-block;
+	padding:0 14px;
+	color:#303030;
+	}
+.detail{
+	color:#85888d;
+	}
+.detail li{
+	margin:0 10px;
+	padding:6px 0;
+	overflow:hidden;
+	font-size:12px;
+	}	
+.detail li{
+	border-bottom:1px solid #e0e0e0;
+	line-height:34px;
+	padding:0 10px;
+	margin:0;
+	font-size:14px;
+	}
+.detail li:last-child {
+    border-bottom: 0;
+}
+.detail li span{
+	float:left;
+	}
+.detail li em{
+	float:right;
+	}
+.detail li b{
+	color:#ff374d;
+	}
+.detail_l{
+	float:left;
+	width:45%;
+	padding-right:3%;
+	border-right:1px solid #e0e0e0;
+	line-height:22px;
+	}
+.detail_r{
+	float:right;
+	width:49%;
+	}
+.product_pay{
+	padding:5px 10px 10px;
+	}
+.product_pay p{
+	padding-bottom:5px;
+	font-size:12px;
+	color:#85888d;
+	}
+.product_pay em {
+	padding-right:30px;
+	} 
+.product_pay b{
+	color:#ff314e;
+	font-size:14px;
+	}
+.app{
+	background:#ff374d;
+	text-align:center;
+	padding:30px 0 15px;
+	color:#FFF;
+	}
+.app p{
+	line-height:26px;
+	}
+.app em{
+	display:inline-block;
+	padding:0 10px;
+	}
+.app span{
+	display:inline-block;
+	padding:0 5px;
+	}
+/*商品详细信息*/
+
+.goods_top{
+	padding:10px;
+	position:relative;
+	overflow:hidden;
+	background:url(/public/images/sheSaidImages/txt-1.png) no-repeat 60px 36px #ff314e;
+	background-size:108px 11px;
+	}	
+.goods_top img{
+	float:left;
+	width:40px;
+	height:40px;
+	border-radius:6px;
+	}
+.goods_top p{
+	padding:0 76px 0 50px;
+	line-height:20px;
+	color:#fff;
+	}	
+.goods_top em{
+	display:inline-block;
+	width:100%;
+	overflow: hidden;
+	word-break: keep-all;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	}
+
+.goods_info{
+	background:#FFF;
+	overflow:hidden;
+	}	
+.goods_info_img img{
+	width:100%;
+	}
+.goods_info_img{
+	position:relative;
+	}
+.goods_info_img em{
+	position:absolute;
+	height:70px;
+	bottom:0;
+	left:0;
+	right:0;
+	background:-webkit-linear-gradient(bottom,rgba(234, 239, 238, 0.5),rgba(255, 255, 255, 0));
+	}		
+.goods_info_name{
+	padding:15px 10px 0;
+	overflow:hidden;
+	}	
+.goods_info_name h2{
+	display:block;
+	font-size:16px;
+	font-weight:800;
+	padding-bottom:15px;
+	}
+.goods_info_name span{
+	float:left;
+	color:#85888d;
+	}
+.goods_info_name b{	
+    display:inline-block;
+	padding-right:4px;
+	font-size:30px;
+	color:#ff374d;
+	font-weight:200;	
+	}	
+.goods_info_name s{
+	display:inline-block;
+	padding-left:10px;
+	}		
+.goods_info_name em{
+	float: right;
+	}
+.goods_info_name em a{
+	display:inline-block;
+	width:40px;
+	height:20px;
+	border-radius:6px;
+	vertical-align:middle;
+	line-height:20px;	
+	background:#ff374d;
+	border:1px solid #ff374d;
+	color:#FFF;
+	text-align:center;
+	font-size:12px;
+	margin: 0 10px;
+	}
+.goods_info_name em img{
+	width:22px;
+	height:22px;
+	border:1px solid #e0e0e0;
+	border-radius:50%;
+	vertical-align:middle;
+	}
+.parameter{
+	margin:0 10px;
+	}
+.parameter li{
+	padding:12px 0;
+	border-bottom:1px solid #e0e0e0;
+	color:#92959a;
+	overflow:hidden;
+	position:relative;
+	}
+.parameter li p{
+	font-size:16px;
+	background:url(/public/images/sheSaidImages/ico-1.png) no-repeat 6px 5px;
+	background-size:16px auto;
+	text-indent:2em;
+	}
+.parameter li span{
+	float:left;
+	}
+.parameter li em{
+	float: right;
+	}
+.parameter li em.shipper{
+	position:absolute;
+	top:11px;
+	right:0;
+	padding-right:20px;
+	}
+.parameter li em.shipper img{
+	width:50px;
+	height:20px;
+	}
+.parameter li b{
+	color:#303030;
+	font-weight:500;
+	}
+.brand{
+	padding:10px;
+	}
+.brand img{
+	width:100%;
+	}
+.comment{
+	background:#FFF;
+	margin-top:10px;
+	padding:15px 10px;
+	overflow:hidden;
+	}								
+.comment h2{
+	font-weight:500;
+	}
+.comment_info li{
+	padding:8px 0;
+	border-bottom:1px solid #e0e0e0;
+	color:#92959a;
+	overflow:hidden;
+	position:relative;
+	}
+.comment_info li:last-of-type{
+	border-bottom:none;
+	}	
+.comment_info li span {
+	display:block;
+	padding-bottom:4px;
+	color:#4c4c4c;
+	}	
+.comment_info li span img{
+	width:28px;
+	height:28px;
+	border-radius:50%;
+	margin-right:10px;
+	vertical-align:middle;
+	}
+.comment_info li.comment_info_h span,.comment_info li.comment_info_h{
+	color:#6b80bc;
+	}	
+.h5{
+	margin-top:10px;
+	background:#fff;
+	padding:4px 10px 10px;
+	margin-bottom:70px;	
+	}
+.h5 img{
+	width:100%;
+	}		
+.goods_pay{
+	border:none;
+	padding:10px;
+	min-height:0;
+	}
+/*个人信息*/
+.person{
+	margin:0;
+
+	border-bottom:none;
+	}
+.person_input-wrap{
+    border-bottom: 1px solid #e0e0e0;
+    position: relative;
+    padding: 0 30px 0 10px;
+    width:100%;
+}
+.person_input-wrap label{
+	display:inline-block;
+	width:70px;
+	padding-left:10px;
+	color:#85888d
+	}	
+.person_input {
+    width: 100%;
+    padding: 10px 0;
+}
+.person_input:disabled{
+	background:#FFF;
+	color:#303030;
+	}
+.prompt{
+	text-align: left;
+	color:#85888d;
+	line-height:26px;
+	}
+/*h5信息*/
+.brnner{
+	position:relative;
+	min-height:120px;
+	}
+.brnner img{
+	width:100%;
+	}
+.brnner_txt{
+	  position: absolute;
+	  bottom: 15px;
+	  left: 50%;
+	  width:175px;
+	  height:150px;
+	  background:url(/public/images/sheSaidImages/stampbg.png?1) no-repeat center top;
+	  background-size:100%;
+	  text-align:center;
+	  color:#FFF;
+	  margin-left:-87.5px;
+	}	
+.brnner_txt img{
+	width:26px;
+	height:26px;
+	border-radius:50%;
+	border:1px solid #d6d3d2;
+	margin:70px 0 30px 0;
+	box-shadow:0 0 10px #202020;
+	}
+.brnner_txt p{
+	width:100%;
+	overflow: hidden;
+	word-break: keep-all;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	font-size:12px;
+	text-shadow: 0 0 10px #202020;
+	}		
+		
+/* .brnner_txt b{
+	display:inline-block;
+	line-height:56px;
+	font-size:38px;
+	font-weight:500;
+	}	 */	
+.h5_cont{
+	background:#FFF;
+	padding:15px 10px 0;
+	font-size:16px;
+	}
+.h5_cont img{
+	width:100%;
+	margin-top:20px;
+	}
+.h5_cont p:first-child{
+	padding:10px 0;
+	}		
+/*.h5_user{
+	background:#FFF;
+	text-align:center;
+	}
+.h5_user img{
+	width:36px;
+	height:36px;
+	border-radius:50%;
+	margin-top:15px;
+	}
+.h5_user p{
+	border-top:1px solid #acacac;
+	margin:16px 10px 0;
+	}
+.h5_user p em{
+	position:relative;
+	background:#FFF;
+	top:-11px;
+	padding:0 8px;
+	}*/
+.h5_status{
+	background:#FFF;
+	padding:0 44px 0 46px;
+	position:relative;
+	overflow:hidden;	
+	}
+.status_img{
+	margin:15px 0;
+	height:26px;
+	overflow:hidden;
+	font-size:0;
+	line-height:0;
+	text-align:left;
+	}		
+.status_img img{
+	width:26px;
+	height:26px;
+	border-radius:3px;
+	margin:0 0 2px 5px;
+	}
+.h5_like{
+	position:absolute;
+	top:15px;
+	left:10px;
+	right:10px;
+	}
+.h5_like_l,.h5_like_r{
+	float:left;
+	background-color:#e0e0e0;
+	border-radius:3px;
+	font-size:12px;
+	color:#85888d;
+	height:26px;
+	line-height:26px;
+	width:36px;
+	text-align:center;
+	}
+.h5_like_r{
+	float:right;
+	width:34px;
+	background-position:10px -230px;
+	text-indent:-9999px;
+	}
+.h5_like_r:active,.h5_like_r.active{
+	background-color:#ff374d;
+	background-position:10px -176px;
+	}			
+.h5_foot{
+	background:#FFF;
+	margin-top:15px;	
+	}
+.h5_price_top{	
+	overflow:hidden;
+	margin:0 10px;
+	padding:10px 0 4px;
+	text-align:center;
+	line-height:26px;
+	border-bottom:1px solid #ececec;
+	font-size: 12px;
+	}
+.h5_price_top span{
+	display:inline-block;
+	color:#ff374d;
+	height:60px;
+	padding:0 20px 0 47px;
+	font-size:56px;
+	line-height:60px;
+	font-family:Arial, Helvetica, sans-serif;
+	background:url(/public/images/sheSaidImages/cut.jpg) no-repeat left top,url(/public/images/sheSaidImages/cut-1.jpg) no-repeat right top;
+	background-size:38px 60px,19px 60px;
+	border:3px solid #ff374d;
+	}	
+.h5_price_top em{
+	float: right;
+	}
+.h5_product{
+	padding:12px 12px 0;
+	overflow:hidden;
+	position:relative;
+	}
+.h5_product img{
+	float:left;
+	width:46px;
+	height:46px;
+	border-radius:3px;
+	border: 1px solid #e0e0e0;
+	}
+.h5_product p{
+	margin:0 70px 0 56px;
+	}
+.h5_product em{
+	position:absolute;
+	top:18px;
+	right:14px;
+	color:#ff374d;
+	line-height:30px;
+	}
+.h5_product em b{
+	font-size:28px;
+	font-weight:400;
+	}																																																								
+/*按钮*/			
+.btn{
+	display:inline-block;
+	text-align:center;
+	-webkit-appearance: none;
+    -webkit-box-sizing: content-box;
+	}
+.btn_code,.btn_re,.btn_that{	
+	line-height:30px;
+	width:80px;
+	border-radius:15px;
+	font-size:12px;
+	}
+.btn_code,.btn_re{
+	position: absolute;
+	top:16px;
+	right:0px;
+	border:1px solid #5fb336;
+	color:#5fb336;
+	}	
+.btn_re{
+	border:1px solid #ff314e;
+	color:#ff314e;
+	}	
+.btn_that{
+	position: absolute;
+	top:13px;
+	right:10px;
+	width:70px;
+	border:1px solid #ffffff;
+	color:#ffffff;
+	border-radius:3px;
+	color:#ffffff;
+	}	
+.btn_finish,.btn_green{
+	width:100%;
+	background:#ff314e;
+	border-radius:6px;
+	line-height:38px;
+	font-size:15px;
+	color:#FFF;
+	}
+a.btn_finish:visited,a.btn_finish:active,a.btn_finish:link,a.btn_green:visited,a.btn_green:active,a.btn_green:link{
+	color:#fff;
+	}	
+.btn_down{
+	width:80px;
+	line-height:26px;
+	background:#FFF;
+	color:#ff374d;
+	border-radius:3px;
+	border:1px solid #cc2235;
+	margin-top:8px;
+	}
+a.btn_down:visited,a.btn_down:active,a.btn_down:link{
+	color:#ff374d;
+	}	
+.btn_green{
+	background:#4cb131;
+	}	
+/*提示*/
+.pup{
+	position:fixed;
+	bottom:-50px;
+	left:5%;
+	width:90%;
+	background:rgba(0,0,0,.6);
+	border-radius:6px;
+	color:#FFF;
+	opacity:0;
+	transition: all .4s;
+	}
+.pup_info{
+	padding:10px 15px;
+	text-align:center;
+	}
+.pup_show{
+	opacity:1;
+	bottom:70px;
+	}	
+/**/
+@-webkit-keyframes fadeInUpBig{
+0%{
+	opacity:0;
+	bottom:0;
+
+  }
+100%{
+	opacity:1;
+	bottom:80px;
+	}
+}				
+/*j_product*/
+.j_product {
+  color: #92959a;
+  padding-bottom:10px;
+}
+.j_productDetails img,.j_productDetails img{
+  width: 99.9%;
+ /* border: 1px solid #e8e8e8;*/
+}
+.j_product_title {
+  width: 100%;
+  margin: 10px 0 0 0;
+  background: url(http://ht.neolix.cn/www/images/cooperation_2/j_product_title.gif) repeat-x left bottom;
+  background-size: 0.4875em 0.4875em;
+  color:#303030;
+}
+.j_product_title span{
+  width: 0.9em;
+  height: 0.9em;
+  display: inline-block;
+  background: url(http://ht.neolix.cn/www/images/cooperation_2/j_product_title_red.png) no-repeat 0 0;
+  background-size: 0.7em 0.7em;
+  position: relative;
+  top: -0.2em;
+  right: -0.1em;
+  border-radius: 50%;
+}
+.j_product_title b {
+  padding: 0 0.5em 0.2em 0;
+  display: inline-block;
+  background: #fff;
+  width:62px;
+}			
+.j_productDetails img{
+  /*margin: 1em 0 0em 0;*/
+}
+.j_product_list li {
+  padding: 0.9em 0;
+  border-bottom:1px dashed #c2c4c6;
+}
+.j_product_list li span{
+  float: right;
+  color: #303030;
+  width: 72%;
+  text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/*微信支付*/
+.wx_body{
+	background:#FFF;
+	}
+.wx_pay_top{
+	background:#4cb131;
+	text-align:center;
+	color:#fff;
+	padding:35px 0 26px 0;
+	font-size:19px;
+}
+.wx_pay_top img{
+	width:100%;
+	}
+.wx_pay_cont{
+	text-align:center;
+	padding:0 10px;
+	}
+.wx_pay_cont h2{
+	display:block;
+	line-height:64px;
+	}
+.j_product strong,.j_product em{
+	display: block;
+	text-align: center;
+	width: 70px;
+	height: 22px;
+	padding: 0 14px;
+	border: 1px solid #ececec;
+	border-radius: 11px;
+	font-size: 14px;
+	line-height: 22px;
+	color: #303030;
+	margin: 15px auto;
+	}
+/*代言人申请*/
+.ico_radio{
+	width:20px;
+	height:22px;
+	background-position:0 -204px;
+	vertical-align:middle;
+	margin-right:4px;
+	margin-left:20px;
+	}
+.ico_radio_h{
+	background-position:-20px -204px;
+	}
+.ico_succes_apply{
+	width:48px;
+	height:48px;
+	display: inline-block;
+	background: url(/public/images/sheSaidImages/ico-4.png?2) no-repeat left top;
+	background-size: 50px 150px;
+	}							
+.apply_body{
+	background:#f5f6fa;
+	padding-top:12px;
+	}
+.apply{
+	background:#FFF;
+	line-height:20px;
+	}
+.apply-input-wrap{
+	border-bottom: 1px solid #e0e0e0;
+	text-align:center;
+	position: relative;
+	}
+.apply-input{
+	text-align:center;
+	width:80%;
+	font-size:16px;
+	padding:15px 0;
+	}
+.apply-input-wrap label{
+	display:inline-block;
+	width:49%;
+	text-align:left;
+	padding:15px 0;
+	border-left:1px solid #e0e0e0;
+	position:relative;
+	}
+.apply-input-wrap label:nth-child(odd){
+	border-left: none;
+	}		
+.radio{
+	-webkit-appearance: radio;
+	margin:0 4px 0 20px;
+	position:absolute;
+	opacity:0;
+	}
+.sex-wrap label{
+	text-align:center;
+    }
+.sex-wrap .ico_radio{
+	margin-left:0;
+	}	
+.apply_tit {
+	padding:16px 12px 5px 12px;
+	line-height:20px;
+	border-bottom: 1px solid #e0e0e0;
+	font-size:13px;
+	color:#85888d;
+	}
+.textarea-wrap{
+	padding:10px 15px;
+	}				
+.textarea{
+	width:100%;
+	height:120px;
+	line-height:20px;
+	}
+.textarea-limit{
+	text-align: right;
+	padding:0 15px 6px;
+	color:#c7c7cc;
+	}
+.apply_tit_p{
+	padding-bottom:100px;
+	font-size:12px;
+	color:#85888d;
+	}	
+.apply_b{
+	border-bottom:1px solid #e0e0e0;
+	}
+.apply_btn{
+	padding: 15px 10px;
+	}
+/*代言申请成功*/
+.apply_succes{
+	text-align:center;
+	padding:10px;
+	line-height:20px;
+	}
+.apply_succes p{
+	padding:15px 0 30px;
+	}	
+.apply_succes p em{
+	font-size:12px;
+	color:#c7c7cc;
+	}
+/*后期修改*/
+.fixed{
+	position:fixed;
+	left:0;
+	right:0;
+	bottom:0;
+	}
+.order_m{
+	margin-bottom:115px;
+	}
+.zambia{
+	position: fixed;
+	width:30%;
+	top:30%;
+	left:50%;
+	margin-left:-15%;
+	-webkit-animation:zambia 1.5s .2s ease both; 
+	}
+.zambia img{
+	width:100%;
+	}
+@-webkit-keyframes zambia{
+0%{ opacity:0;}
+10%{ opacity:.2;}
+20%{ opacity:.6;}
+30%{ opacity:1;}
+50%{ opacity:1;}
+70%{ opacity:1;}
+80%{ opacity:.6;}
+90%{ opacity:.2;}
+100%{opacity:0;}	
+}
+.load{
+	display:none;
+	position:fixed;
+	top:50%;
+	left:50%;	
+	background:url(/public/images/sheSaidImages/load.gif) no-repeat center top;
+	background-size:100%;
+	width:127px;
+	height:115px;
+	margin: -58px 0 0 -63.5px;
+	}	
+/*我的信息*/
+.message_address_wrao{
+	border-top: 1px solid #e0e0e0;
+	}
+.message_address{
+	color:#85888d;
+	font-size:16px;
+	padding-right:18%;
+	}
+.message_input{
+	width:65%;
+	padding-left:20px;
+	font-size:15px;
+}
+.message_input_info div:first-child{
+   border-top: none; 
+	}
+.message_product{
+	position:relative;
+	overflow:hidden;
+	padding:15px 10px;
+	}
+.message_pay{
+    border-top: 1px solid #e0e0e0;
+	padding:10px;
+	}
+.identity{
+	padding:10px;
+	}	
+.identity h2{
+	display:block;
+	border-bottom:1px solid #ff314e;
+	font-size:16px;
+	padding-bottom:10px;
+	overflow:hidden;
+	line-height:20px;
+	}
+.identity h2 img{
+	width:50px;
+	float:left;
+	margin-right:10px;
+	}
+.identity h2 p{
+	padding:4px 0 0 0;
+	}		
+.identity p{
+	line-height:22px;
+	padding:10px 0;
+	}
+.identity p em{
+	color:#ff314e;
+	}	
+.identity_info{
+	position:relative;
+	overflow:hidden;
+	}
+.identity_info p{
+	line-height:16px;
+	padding:0;
+	}		
+.identity_info label{
+	position:relative;
+	float:right;
+	width:48%;
+	border:1px solid #e0e0e0;
+	height:90px;
+	overflow:hidden;
+	line-height:20px;
+	color:#b3b5b8;
+	text-align:center;
+	}	
+.identity_info label:first-child{
+	float:left;
+	}
+.identity_info label img{
+	width:100%;
+	height:90px;
+	}	
+.file{
+	position:absolute;
+	top:0;
+	left:0;
+	opacity:0;
+	}	
+.ico_customs{
+	width:28px;
+	height:22px;
+	background-position: 0 -343px;
+	vertical-align:middle;
+	}	
+.ico_camera{
+	width:34px;
+	height:28px;
+	margin-top:18px;
+	background-position: 1px -303px;
+	}
+.img_code{
+ position: absolute;
+ top:0;
+ right:0;
+ width:100px;
+ border-radius:0 6px 6px 0; 
+ background:#ff71b4;
+ border:2px solid #ff71b4;
+ border-left:0;
+ }
+.img_code img{
+ width:100%;
+ height:40px;
+ border-radius:0 6px 6px 0; 
+ }	
+.pop-pay-close{
+			  position:absolute;
+			  top:10px;
+			  right:10px;
+			  width:20px;
+			  height:20px;
+			  background:url(/public/images/H5/bbt/paydoneClose.png) no-repeat center top;
+			  background-size:20px 20px;
+			  }	
+.cont-h115{
+ width:100%;
+ height:115px;
+ overflow:hidden;
+ }	
+ .cont-h80{
+ width:100%;
+ height:80px;
+ overflow:hidden;
+ }	
+ .product_neme{
+    position:relative;
+    padding-right:65px;
+    } 
+ .product_neme em{
+  position:absolute;
+  top:2px;
+  right:0;
+  font-size:12px;
+  line-height:16px;
+  color: #ff314e;
+ }
+  .shop-product-top{
+   overflow: hidden;
+margin-bottom: 10px;
+border-bottom: 1px solid #E0E0E0;
+font-size: 12px;
+  }
+ .shop-product-top-m{
+    padding: 4px 10px;
+    margin: 0px;
+ } 
+ .shop-product-top img{
+   height:12px;
+   vertical-align:middle;
+   margin:0 4px;
+ }    
+ .shop-product-top span{
+  color:#85888d;
+  float:left;
+ }
+ .shop-product-top em{
+  float:right;
+ }

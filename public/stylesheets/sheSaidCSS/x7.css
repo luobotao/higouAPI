@@ -1,0 +1,11 @@
+.pic-img,.pic-img img{
+	width:156px;
+	height:156px;
+	}
+.name{
+	position:absolute;
+	top:0;
+	left:156px;
+	right:0;
+	bottom:12px;
+}	

@@ -1,0 +1,233 @@
+﻿body{
+	background:#f5f6fa;
+	}
+.fl{
+	float:left;
+	}
+.fr{
+	float: right;
+	}		
+.ico-return,.ico-basket,.ico-success-max,.ico-success-top,.ico-success-min{
+	display: inline-block;
+	background: url(/public/images/sheSaidImages/ico-new.png) no-repeat left top;
+	background-size: 155px 95px;
+}
+.ico-return,.ico-basket{
+	position:absolute;
+	top:50%;
+	margin-top:-10px;
+	width:25px;
+	height:20px;
+	}
+.ico-return{
+	left:10px;
+	}
+.ico-basket{
+	right:10px;
+	background-position:left -27px;
+	}
+.ico-success-max{
+	width:96px;
+	height:96px;
+	background-position:-60px top;
+	}
+.ico-success-top,.ico-success-min{
+	position:absolute;
+	top:15px;
+	right:10px;
+	width:16px;
+	height:16px;
+	background-position:-31px top;
+	}
+.ico-success-min{
+	background-position:-31px -23px;
+	}					
+.nav-top{
+	width:100%;
+	background:#FFF;
+	height:45px;
+	line-height:45px;
+	color:#ff374d;
+	text-align:center;
+	position: relative;
+	overflow:hidden;
+	border-bottom:1px solid #e0e0e0;
+	border-top:1px solid #e0e0e0;
+	}
+.nav-top-fixed{
+	position:fixed;
+	top:0;
+	left:0;
+	}
+.nav-top-height{
+	height:47px;
+	}		
+.nav-top p{
+	padding:0 40px;
+	font-size:16px;
+	font-weight:800;
+	}
+.orderNumber{
+	background:#ff374d;
+	font-size:24px;
+	text-align:center;
+	color:#FFF;
+	padding:20px 0 15px;
+	margin-bottom:10px;
+	line-height:16px;
+	}
+.orderNumber p{	
+	line-height:32px;
+	}	
+.orderNumber em{
+	font-size:12px;
+	}
+.express-list{
+	overflow:hidden;
+	padding-bottom:30px;
+	}	
+.express-list li{
+	margin:0 10px;
+	padding:15px 0;
+	border-bottom:1px solid #e0e0e0;
+	overflow:hidden;
+	}		
+.express-list li span{
+	float:left;
+	width:100px;
+	font-size:12px;
+	position:relative;
+	line-height:20px;
+	}
+.express-list li span b{
+	font-size:23px;
+	}	
+.express-list li p{
+	margin-left:100px;
+	min-height:40px;
+	line-height:18px;
+	/* Safari, Chrome, and Opera */
+	display:-webkit-box;
+	-webkit-box-align:center;
+	/* W3C */
+	display:box;
+	box-align:center;
+	font-size:12px;
+	color:#85888d;
+	}
+.express-list li p em{
+	color:#303030;
+	}
+.orderSuccess{
+	text-align:center;
+	padding:80px 0;
+	}
+.orderSuccess p{
+	padding-top:30px;
+	}					
+.btn-blank{	
+	display:inline-block;
+	width:60%;
+	height:34px;
+	line-height:34px;
+	font-size:15px;
+	border:1px solid #b0b5be;
+	text-align: center;
+	border-radius:6px;
+	color:#b0b5be;
+	}
+.orderSuccess .btn-blank{
+	margin-bottom:20px;
+	}
+.orderHungrg {
+	text-align:center;
+	padding-bottom:120px;
+	}	
+.orderHungrg img{
+	width:100%;
+	}
+.orderHungrg a{
+	width:40%;
+	}			
+.orderShow li{
+	background:#FFF;
+	border:1px solid #e0e0e0;
+	overflow:hidden;
+	margin-bottom:10px;
+	}
+.orderShow li:first-child{
+	border-top:0;
+	}		
+.orderShow-top,.orderProduct,.orderProduct-hair,.orderShow-package,.orderProduct-img{
+	padding:10px;
+	overflow:hidden;
+	}
+.orderProduct,.orderProduct-hair,.orderShow-package,.orderProduct-img{
+	border-top:1px solid #e0e0e0;
+	position:relative;
+	}	
+.orderShow-top .fr b{
+	color:#ff314e;
+	}	
+.orderProduct img{
+	float:left;
+	width:55px;
+	height:55px;
+	border:1px solid #e0e0e0;
+	}	
+.orderProduct-name{
+	position:absolute;
+	left:75px;
+	right:10px;	
+	font-size:12px;	
+	line-height:20px;
+	}	
+.orderProduct-name p{
+	font-weight:800;
+	width:100%;
+	height:40px;
+	font-size:14px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+	}	
+.orderProduct-standard,.orderProduct-hair,.orderShow-top{
+	color:#92959a;
+	}
+.orderProduct-standard span{
+	padding-right:20px;
+	}		
+.orderProduct-standard b,.orderShow-package b,.orderShow-top b{
+	color:#303030;
+	}		
+.orderProduct-hair a{
+	width:70px;
+	margin-left:10px;
+	line-height:24px;
+	height:24px;
+	}	
+.orderShow-package{
+	background:#efefef;
+	color:#92959a;
+	line-height:16px;
+	font-size:14px;
+	}
+.orderProduct-img{
+	text-align:center;
+	}		
+.orderProduct-img img{
+	border:1px solid #e0e0e0;
+	width:23%;
+	}	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		

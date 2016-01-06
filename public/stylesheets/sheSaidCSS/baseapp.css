@@ -1,0 +1,93 @@
+@charset "utf-8";
+
+/* base */
+
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,div,th,td,dl,dd,form,fieldset,legend,input,textarea,select{ margin:0px; padding:0px; box-sizing: content-box;}
+body{font:14px/20px Microsoft YaHei,helvetica,arial;-webkit-text-size-adjust:100%; background:#fe3b51; color:#fff;max-width:640px;margin: 0 auto;}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+  display: block;
+  margin:0px; padding:0px; box-sizing: content-box;
+}
+h1,h2,h3,h4,h5,h6,i,samp,strong,span,a,li{;font-size:inherit; font-weight:normal;}
+address,cite,code,em,th,i{font-weight:normal; font-style:normal;} 
+a{color:#2d374b;text-decoration:none;}
+a:hover{text-decoration:none;}
+li{list-style:none}
+img{border:0;vertical-align:middle;}
+table{border-collapse:collapse;border-spacing:0}
+p{word-wrap:break-word;}
+textarea{resize:none;}
+fieldset {border: none;}
+label,a,button,input,textarea{
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.container{
+	background:url(/public/images/sheSaidImages/bg.jpg) no-repeat center top;
+	background-size:100%;
+	min-height:500px;
+	text-align:center;
+	}
+.container b{
+	font-size:16px;
+	}
+img{
+	width:100%;
+	}
+.tit{
+	width:300px;
+	border:1px solid #fff;
+	margin:40px auto 0;
+	font-size:18px;
+	line-height:36px;
+	font-weight:800;
+	}
+.cont h2 img{
+	width:30px;
+	vertical-align:-9px;
+	margin-right:6px;
+	}	
+.quote01{
+	margin-bottom:15px;
+	}	
+.quote02{
+	margin-top:35px;
+	}		
+.cont{
+	width:300px;
+	margin:0 auto;
+	text-align:left;
+	}
+.cont h2{
+	padding-top:25px;
+	font-size:16px;
+	font-weight:800;
+	height:40px;
+	line-height:40px;
+	}
+.quote03{
+	padding-bottom:60px;
+	}		
+		
+
+	
+			
+	
+	
+
+
+ 
+
+ 
+
+  			

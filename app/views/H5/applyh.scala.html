@@ -1,0 +1,223 @@
+@views.html.sheSaid.main{
+
+<title>嗨个购代言人申请</title>
+<link rel="stylesheet" type="text/css" href="@assets.CdnAssets.urlForAPIPublic("stylesheets/sheSaidCSS/apply.css")" media="all">
+}{
+<div class="container">
+<form name="form1" id="form1" action="/sheSaid/saveapply" method="post">
+	<input type="hidden" id="sexh" name="sexh" value=""/>
+	<input type="hidden" id="incomeh" name="incomeh" value=""/>
+           <div class="apply">
+
+              <div class="apply-input-wrap">
+
+                 <input type="text" class="apply-input" placeholder="姓名" id="uname" name="uname">
+
+              </div>
+
+              <div class="apply-input-wrap sex-wrap">
+
+                 <label><input type="radio" name="sex" id="sex" class="radio" value="女生" onclick="setvalue(this,'sexh')"/><i class="ico_radio"></i>女生</label>
+
+                 <label><input type="radio" name="sex" id="sex" class="radio" value="男生" onclick="setvalue(this,'sexh')"/><i class="ico_radio"></i>男生</label>
+
+              </div>
+
+              <div class="apply-input-wrap">
+
+                 <input type="text" class="apply-input" placeholder="年龄" id="yearold" name="yearold">
+
+              </div>
+
+              <div class="apply-input-wrap">
+
+                 <input type="text" class="apply-input" placeholder="职位" id="oper" name="oper">
+
+              </div>
+
+              <div class="apply-input-wrap">
+
+                 <input type="text" class="apply-input" placeholder="微信号" id="wx" name="wx">
+
+              </div>
+
+              <div class="apply-input-wrap">
+
+                 <input type="tel" class="apply-input" placeholder="手机号" id="phone" name="phone">
+
+              </div>
+
+           </div>
+
+           <div class="apply_tit">
+
+              您的月收入
+
+           </div>
+
+           <div class="apply">
+
+              <div class="apply-input-wrap">
+
+                  <label><input type="radio" name="income" id="income" class="radio" onclick="setvalue(this,'incomeh')" value="2000及以下"/><i class="ico_radio"></i>2000及以下</label>
+
+                  <label><input type="radio" name="income" id="income" class="radio" onclick="setvalue(this,'incomeh')" value="2001-5000"/><i class="ico_radio"></i>2001-5000</label>
+
+              </div>
+
+              <div class="apply-input-wrap">
+
+                  <label><input type="radio" name="income" id="income" class="radio" onclick="setvalue(this,'incomeh')" value="5001-8000"/><i class="ico_radio"></i>5001-8000</label>
+
+                  <label><input type="radio" name="income" id="income" class="radio" onclick="setvalue(this,'incomeh')" value="8001-10000"/><i class="ico_radio"></i>8001-10000</label>
+
+              </div>
+
+              <div class="apply-input-wrap">
+
+                  <label><input type="radio" name="income" id="income" class="radio" value="10001-15000" onclick="setvalue(this,'incomeh')"/><i class="ico_radio"></i>10001-15000</label>
+
+                  <label><input type="radio" name="income" id="income" class="radio" value="15000以上" onclick="setvalue(this,'incomeh')"/><i class="ico_radio"></i>15000以上</label>
+
+              </div>
+
+           </div>
+
+           <div class="apply_tit">
+
+              希望成为代言人的理由
+
+           </div>
+
+           <div class="apply apply_b">
+
+              <div class="textarea-wrap">
+
+                 <textarea class="textarea" id="remark" name="remark" placeholder='您的说明是成为代言人的关键哦，您的说明是成为代言人的关键哦，您的说明是成为代言人的关键哦。'></textarea>
+
+              </div>
+
+              <div class="textarea-limit">
+
+                <p>500</p>
+
+              </div>
+
+           </div>
+
+           <div class="apply_tit apply_tit_p">
+
+              提交信息后，我们会进行研究和审核。如果通过审核，我们工作人员会主动联系您。感谢对嗨个购的支持！
+
+           </div>
+
+           <div class="apply apply_btn">
+
+              <a href="javascript:;" class="btn btn_finish" onclick="checksubmit()">提&nbsp;交</a>
+
+           </div>
+</form>
+        </div>
+
+
+}{ 
+<script>
+	$(function(){			 
+
+			  $("input[name='sex']").each(function(index) {
+
+                  $(this).on("click",function(){
+
+					  $(this).parent().parent().find('.ico_radio').removeClass('ico_radio_h')
+
+					  $(this).parent().find('.ico_radio').addClass('ico_radio_h');					  
+
+				  })
+
+              });
+
+			  $("input[name='income']").each(function(index) {
+
+                  $(this).on("click",function(){
+
+					  $(this).parent().parent().parent().find('.ico_radio').removeClass('ico_radio_h')
+
+					  $(this).parent().find('.ico_radio').addClass('ico_radio_h');					
+				  })
+
+              });
+
+		  })
+
+	function checksubmit(){
+		var ver=true;
+		if(document.getElementById("sexh").value.length==0)
+		{
+			_alert("请选择性别!");
+			ver=false;
+		}
+		if(document.getElementById("income").value.length==0)
+		{
+			_alert("请选择收入!");
+			ver=false;
+		}
+		if(document.getElementById("uname").value.length==0)
+		{
+			_alert("请输入姓名!");
+			ver=false;
+		}
+		if(document.getElementById("uname").value.length>20){
+			_alert("姓名不能超过20字符!");
+			ver=false;
+		}
+		if(document.getElementById("yearold").value.length>10){
+			_alert("年龄不能超过10个字符！");
+			ver=false;
+		}
+		if(document.getElementById("oper").value.length>20)
+		{
+			_alert("职业不能超过20个字符!");
+			ver=false;
+		}
+		if(document.getElementById("wx").value.length>30){
+			_alert("微信号不能超过30个字符！");
+			ver=false;
+		}
+		if(ver){
+			var reg = /^1\d{10}$/g; 
+	   		//if(!reg.test(document.getElementById("phone").value))
+	   		if(document.getElementById("phone").value.length<1){
+	     		_alert("请输入正确的手机号!");
+	 			ver=false;
+	 		}
+	 	}
+	 	if(document.getElementById("remark").value.length>100){
+	 		_alert("建议内容长度不能超过100字符!");
+	 		ver=false;
+	 	}
+	 	if(ver){
+	 		document.getElementById("form1").action="/sheSaid/saveapply";
+	 		document.getElementById("form1").submit();
+	 	}
+	}
+	function setvalue(obj,hid)
+	{
+		//alert(hid);
+		var radioss= obj.value
+		document.getElementById(hid).value=radioss;
+	}
+	function _alert(txt){			
+	 var cont = '<div class="pup"><div class="pup_info"></div></div>';
+	 $('.pup').removeClass('pup_show').remove();			 
+	 $('body').append(cont);
+	 setTimeout(function(){
+	   this.txt = txt || '信息错误'; 
+	   $('.pup_info').html(this.txt)	 
+	   $('.pup').addClass('pup_show');  
+	 },300); 
+	 setTimeout(function(){
+	   $('.pup').removeClass('pup_show');  
+	 },2100) 
+  }
+  </script>
+}

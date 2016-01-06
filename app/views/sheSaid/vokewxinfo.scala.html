@@ -1,0 +1,66 @@
+@(user:User)
+@views.html.sheSaid.main{
+
+<title>个人中心</title>
+
+}{
+<div class="container">
+	<div class="login">
+
+		<input type="hidden" id="openid" name="openid" value="@user.getOpenId()"/>
+		<input type="hidden" id="access_token" name="access_token" value="@user.getAccessToken()"/>
+		<input type="hidden" id="unionid" name="unionid" value="@user.getUnionid()"/>
+		<input type="hidden" id="wx_nickname" name="wx_nickname" value="@user.getNickname()"/>
+		<input type="hidden" id="wx_headimg" name="wx_headimg" value="@user.getHeadIcon()"/>		
+		<div class="input-wrap input-wrap-b">
+			<input type="tel" class="input tel" id="phone" name="phone" placeholder="输入您的手机号">
+		</div>
+
+		<div class="input-wrap">
+			<input type="text" id="tel" name="tel" class="input letter" placeholder="输入短信验证码">
+			<a href="#" class="btn btn_code" id="sendsms" name="sendsms" onclick="verifySMS()"	>发送验证码</a>
+			<!--下面是重新发送-->
+			<!--<a href="#" class="btn btn_re">重新发送</a>-->
+		</div>
+
+	</div>
+</div>
+}{ 
+<script type="text/javascript">
+<!--
+	var miao = 6;
+    function verifySMS(){
+    
+    	if(document.getElementById("phone").value.length==11){
+	    	miao=6;
+	    	time_op();
+   		}
+   		else
+   		{	
+   			alert("请输入手机号码!");
+   			document.getElementById("phone").focus();
+   			return false;
+   		}
+    }
+    
+
+	function time_op() {		
+		miao--;
+		if(miao>0){
+			document.getElementById("sendsms").innerHTML = miao;
+			document.getElementById("sendsms").onclick="";
+		}
+		else
+		{	
+			document.getElementById("sendsms").innerHTML = "发送验证码";
+			//document.getElementById("sendsms").onclick="verifySMS()";
+			$('#sendsms').attr('onclick','verifySMS()'); 
+			alert(document.getElementById("sendsms").onclick);
+		}
+		if(miao>1)
+			setTimeout("time_op()", "1000");
+	}
+
+//-->
+</script>
+}

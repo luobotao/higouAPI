@@ -1,0 +1,209 @@
+ @charset "utf-8";
+
+/* base */
+
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,div,th,td,dl,dd,form,fieldset,legend,input,textarea,select{ margin:0px; padding:0px; box-sizing: content-box;}
+body{font:14px/20px Microsoft YaHei,helvetica,arial;-webkit-text-size-adjust:100%; background:#fff; color:#303030;max-width:640px;margin: 0 auto;}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+  display: block;
+  margin:0px; padding:0px; box-sizing: content-box;
+}
+h1,h2,h3,h4,h5,h6,i,samp,strong,span,a,li{;font-size:inherit; font-weight:normal;}
+address,cite,code,em,th,i{font-weight:normal; font-style:normal;} 
+a{color:#2d374b;text-decoration:none;}
+a:hover{text-decoration:none;}
+li{list-style:none}
+img{border:0;vertical-align:middle;}
+table{border-collapse:collapse;border-spacing:0}
+p{word-wrap:break-word;}
+textarea{resize:none;}
+fieldset {border: none;}
+label,a,button,input,textarea{
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	font:14px/20px Microsoft YaHei,helvetica,arial;
+	border:none;
+	outline:none;
+    -webkit-appearance: none;
+    -webkit-box-sizing: content-box;
+}
+
+.container img{
+	width: 100%;
+}
+/*ico图标*/
+i,.nav a,.nav span{
+	display: inline-block;
+	background: url(/public/images/sheSaidImages/note/ico.png) no-repeat left top;
+	background-size: 320px 56px;
+}																																																							
+/*按钮*/			
+.btn{
+	display:inline-block;
+	padding:0 20px;
+	height: 30px;
+	line-height: 30px;	
+	border-radius: 3px;
+	color: #FFF;
+	background: #ff2b65;
+	transition: all .2s;
+	cursor: pointer;
+	text-align:center;
+	border: none;
+	-webkit-appearance: none;
+    -webkit-box-sizing: content-box;
+	}		
+a.btn:visited,a.btn:active,a.btn:link{
+	color:#fff;
+	}	
+.top{
+	position: relative;
+}
+.nav{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+}
+.nav a{
+	display: inline-block;
+	width: 58px;
+	height: 100px;
+	color: #fff;
+	text-align: center;
+	margin: 0 18px;
+	line-height: 136px;
+	position: relative;
+}
+.nav a.code{
+	background-position: -62px 0;
+}
+.nav a.list{
+	background-position: -124px 0;
+}
+.nav span{
+	position: absolute;
+	bottom: -12px;
+	left: 7px;
+	width: 44px;
+	height: 12px;
+	background-position: -192px 0;
+	transition:all .3s;
+	opacity: 0;
+}
+.nav span.active{
+    opacity: 1;
+    bottom: 0;
+}
+.list ol{
+	display:none;
+	min-height:600px;
+	}
+.goodlist{
+	padding-bottom:50px;
+	}	
+.goodlist li{
+	border-bottom:1px solid #ececec;
+	padding:5px 20px;
+	overflow: hidden;
+	position:relative;
+	}
+.goodlist li em{
+	float:left;
+	font-size:28px;
+	line-height:32px;
+	color:#ff374d;
+	}
+.goodlist li span{
+	position:absolute;
+	top:5px;
+	right:20px;
+	height:32px;
+	line-height:34px;
+	}
+.goodlist li b{
+	color:#ff374d;
+	font-weight:400;
+	}
+.goodlist li em b{
+	position:relative;
+	top:3px;
+	}	
+.goodlist li p{
+	margin:0 126px 0 74px;
+	overflow: hidden;
+	word-break: keep-all;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	line-height:34px;
+	}			
+.goodlist li img{
+	width:30px;
+	height:30px;
+	padding:1px;
+	border:1px solid #d7d7d7;
+	border-radius:50%;
+	vertical-align:middle;
+	margin:0 12px;
+	}
+.code_info{
+	padding-bottom:60px;
+	}	
+.code_cont{
+	width:54%;
+	margin:39px auto 0;
+	border:2px dotted #e4234d;
+	border-radius:6px;
+	position:relative;
+	}
+.code_cont h2{
+	position:absolute;
+	width:66px;
+	top:-11px;
+	left:50%;
+	margin-left:-33px;
+	line-height:22px;
+	text-align:center;
+	background:#ff374d;
+	border-radius:6px;
+	color:#FFF;
+	}
+.code_cont p{
+	text-align:center;
+	padding:20px 0 10px;
+	}
+.goodlist_txt{
+ line-height:0;
+ font-size:0;
+ text-align:center;
+ border-bottom:1px solid #ececec;
+ }		
+img.apply{
+	width:70px;
+-webkit-animation:pulse 1s .2s ease both infinite;
+-moz-animation:pulse 1s .2s ease both infinite;}
+@-webkit-keyframes pulse{
+0%{-webkit-transform:scale(1)}
+50%{-webkit-transform:scale(1.05)}
+100%{-webkit-transform:scale(1)}
+}
+@-moz-keyframes pulse{
+0%{-moz-transform:scale(1)}
+50%{-moz-transform:scale(1.05)}
+100%{-moz-transform:scale(1)}
+}			
+	
+	
+	
+	
+			

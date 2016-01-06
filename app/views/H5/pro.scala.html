@@ -1,0 +1,32 @@
+@(url:String)(pid:String)(phone:String)
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="format-detection" content="address=no;">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  </head>
+<title>商品详情</title>
+<script language="javascript">
+var ua = window.navigator.userAgent.toLowerCase();
+var bw=false;
+
+if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+	bw=true;
+}else{
+	bw=false;
+}
+var wx="";
+if(bw)
+	wx="1";
+	
+var v='@url';
+window.location.href=v+"?pid=@pid&phone=@phone&wx="+wx;
+</script>
+</html>

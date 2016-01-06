@@ -1,0 +1,39 @@
+@(uid:String)
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="format-detection" content="address=no;">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  </head>
+<title>邀请分享</title>
+<script src="@assets.CdnAssets.urlForAPIPublic("javascripts/sheSaidJs/count.js")"></script>
+<script language="javascript">
+var ua = window.navigator.userAgent.toLowerCase();
+var bw=false;
+var iswx="0";
+if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+	bw=true;
+	iswx="1";
+}else{
+	bw=false;
+}
+var orip;
+var counturl = location.href.split('#')[0];
+jQuery(function($){
+	var url = 'http://chaxun.1616.net/s.php?type=ip&output=json&callback=?&_='+Math.random(); 
+	$.getJSON(url, function(data){
+		orip=data.Ip; 
+		//添加统计
+		addcount(data.Ip,counturl,'0',iswx,'frendinvite','@uid');
+	});
+});
+window.location.href="http://a.app.qq.com/o/simple.jsp?pkgname=cn.neolix.higo";
+</script>
+</html>

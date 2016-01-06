@@ -1,0 +1,696 @@
+﻿@charset "utf-8";
+
+/* base */
+
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,div,th,td,dl,dd,form,fieldset,legend,input,textarea,select{ margin:0px; padding:0px; box-sizing: content-box;}
+body{font:14px/20px Microsoft YaHei,helvetica,arial;-webkit-text-size-adjust:100%; background:#f7f4ef; color:#303030;max-width:640px;margin: 0 auto;}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+  display: block;
+  margin:0px; padding:0px; box-sizing: content-box;
+}
+h1,h2,h3,h4,h5,h6,i,samp,strong,span,a,li{;font-size:inherit; font-weight:normal;}
+address,cite,code,em,th,i{font-weight:normal; font-style:normal;} 
+a{color:#2d374b;text-decoration:none;}
+a:hover{text-decoration:none;}
+li{list-style:none}
+img{border:0;vertical-align:middle;}
+table{border-collapse:collapse;border-spacing:0}
+p{word-wrap:break-word;}
+textarea{resize:none;}
+fieldset {border: none;}
+label,a,button,input,textarea{
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	font:14px/20px Microsoft YaHei,helvetica,arial;
+	border:none;
+	outline:none;
+    -webkit-appearance: none;
+    -webkit-box-sizing: content-box;
+}
+
+.cont{	
+	margin-top:10px;	
+	border-top:1px solid #e0e0e0;
+	background:#FFF;
+	border-bottom:1px solid #e0e0e0;
+	overflow:hidden;
+	position:relative;
+	min-height:40px;
+	}
+/*ico图标*/
+i,.ico_top,.h5_status em{
+	display: inline-block;
+	background: url(/images/sheSaidImages/ico.png?1) no-repeat left top;
+	background-size: 40px 200px;
+}
+.ico_arrow_right{
+	position: absolute;
+	top: 50%;
+	right: 2%;
+	width: 12px;
+	height: 14px;
+	margin: -7px 0 0 0;
+	background-position: 0 -70px;
+	z-index: 10;
+}
+.new_check{
+	width: 14px;
+	height: 14px;
+	margin-right:6px;
+	background-position: 0 -47px;
+	vertical-align:middle;
+	}
+.ico_number_cut,.ico_number_add{
+	width:20px;
+	height:20px;
+	background-position: -1px -90px;
+	vertical-align:middle;
+	}
+.ico_number_cut{
+	background-position: -1px -114px;
+	}
+.ico_top{
+	position: fixed;
+	bottom:4%;
+	right:10px;
+	width:36px;
+	height:36px;
+	background-position: -1px -140px;
+	}			
+/*登录*/
+.login{
+	background:#FFF;
+	border-bottom:1px solid #e0e0e0;
+	}
+.input-wrap{
+	margin:0 10px;
+	border-top:1px solid #e0e0e0;
+	padding:20px 0;
+	position:relative;
+	}
+.input-wrap-b{
+	border:none;}	
+.input{
+	width:60%;
+	padding-left:20px;
+	font-size:15px;
+	background: url(/images/sheSaidImages/ico.png) no-repeat 2px 4px;
+	background-size: 40px 200px;
+}
+.letter{
+	background-position: left -20px;
+	}
+.protocol{
+	margin:0 10px;
+	text-align:center;
+	}
+.protocol p:first-child{
+	padding:10px 0;
+	}	
+	
+/*订单结算*/
+.address{
+	position: relative;
+	background:url(/images/sheSaidImages/addressbg.jpg) repeat-y center top;
+	background-size:100%;
+	border-bottom:1px solid #e0e0e0;
+}
+.address img{
+	width: 100%;
+}
+.address_info{
+	border-left:1px solid #ff314e;
+	margin-left:10px;
+	padding:25px 0 20px 10px;
+}
+.address_info .name{
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 26px;
+	padding-bottom: 6px;
+}
+.address_info .txt{
+	color: #8e9195;	
+	padding: 0 0 4px 0;
+	margin-right: 12%;
+}
+.address_info span{
+	display:block;
+	height:22px;
+	border-bottom: 1px dashed #7a7a7a;
+	margin-bottom:4px;
+	}
+.product{
+	padding:15px 10px;
+	}
+.product_img{
+	float:left;
+	width:70px;
+	height:70px;
+	}
+.product_img img{
+	width:70px;
+	height:70px;
+	border:1px solid #e4e4e4;
+	}
+.product_neme{
+	margin-left:80px;
+	}
+.product_info{
+	position:absolute;
+	left:90px;
+	right:10px;
+	bottom:15px;
+	}
+.product_info span{
+	float:left;
+	color:#85888d;
+	}	
+.product_info em{
+	float:right;
+	color:#ff314e;
+	font-weight:800;
+	}
+.product_info b{
+	display:inline-block;
+	padding:0 14px;
+	color:#303030;
+	}
+.detail{
+	color:#85888d;
+	}
+.detail li{
+	margin:0 10px;
+	padding:6px 0;
+	overflow:hidden;
+	font-size:12px;
+	}	
+.detail li:first-child{
+	border-bottom:1px solid #e0e0e0;
+	line-height:34px;
+	padding:0 10px;
+	margin:0;
+	font-size:14px;
+	}
+.detail li:nth-child(2){
+	border-bottom:1px solid #e0e0e0;
+	}
+.detail li span{
+	float:left;
+	}
+.detail li em{
+	float:right;
+	}
+.detail li b{
+	color:#ff374d;
+	}
+.detail_l{
+	float:left;
+	width:45%;
+	padding-right:3%;
+	border-right:1px solid #e0e0e0;
+	line-height:22px;
+	}
+.detail_r{
+	float:right;
+	width:49%;
+	}
+.product_pay{
+	padding:15px 10px;
+	}
+.product_pay p{
+	padding-bottom:14px;
+	font-size:12px;
+	color:#85888d;
+	}
+.product_pay em {
+	padding-right:30px;
+	} 
+.product_pay b{
+	color:#ff314e;
+	font-size:14px;
+	}
+.app{
+	background:#ff374d;
+	text-align:center;
+	padding:30px 0 15px;
+	color:#FFF;
+	}
+.app p{
+	line-height:26px;
+	}
+.app em{
+	display:inline-block;
+	padding:0 10px;
+	}
+.app span{
+	display:inline-block;
+	padding:0 5px;
+	}
+/*商品详细信息*/
+.goods_top{
+	padding:10px;
+	position:relative;
+	overflow:hidden;
+	background:#FFF;
+	}
+.goods_top img{
+	float:left;
+	width:50px;
+	height:50px;
+	border-radius:50%;
+	}
+.goods_top p{
+	padding:4px 0 0 60px;
+	}
+.goods_top em{
+	display:inline-block;
+	padding:0 6px 0 0;
+	color:#458ac9;
+	}
+.goods_top span{
+	font-size:12px;
+	color:#85888d;
+	}
+.goods_info{
+	background:#FFF;
+	overflow:hidden;
+	}	
+.goods_info_img img{
+	width:100%;
+	}
+.goods_info_name{
+	padding:15px 10px 0;
+	overflow:hidden;
+	}	
+.goods_info_name h2{
+	display:block;
+	font-size:16px;
+	font-weight:800;
+	padding-bottom:15px;
+	}
+.goods_info_name span{
+	float:left;
+	color:#85888d;
+	}
+.goods_info_name b{
+	display:inline-block;
+	font-size:25px;
+	color:#ff374d;
+	font-weight:500;
+	padding-right:10px;
+	}		
+.goods_info_name em{
+	float: right;
+	}
+.goods_info_name em a{
+	width:30px;
+	height:20px;
+	border:1px solid #e0e0e0;
+	border-radius:6px;
+	vertical-align:middle;
+	}
+.goods_info_name em img{
+	width:22px;
+	height:22px;
+	border:1px solid #e0e0e0;
+	border-radius:50%;
+	vertical-align:middle;
+	}	
+.goods_info_name em a{
+	display:inline-block;
+	background:#ff374d;
+	border:1px solid #ff374d;
+	color:#FFF;
+	text-align:center;
+	font-size:12px;
+	margin: 0 10px;
+	}
+.parameter{
+	margin:0 10px;
+	}
+.parameter li{
+	padding:16px 0;
+	border-bottom:1px solid #e0e0e0;
+	color:#92959a;
+	overflow:hidden;
+	position:relative;
+	}
+.parameter li p{
+	font-size:16px;
+	background:url(/images/sheSaidImages/ico-1.png) no-repeat 6px 5px;
+	background-size:16px auto;
+	text-indent:2em;
+	}
+.parameter li span{
+	float:left;
+	}
+.parameter li em{
+	float: right;
+	}
+.parameter li em.shipper{
+	position:absolute;
+	top:15px;
+	right:0;
+	padding-right:20px;
+	}
+.parameter li em.shipper img{
+	width:50px;
+	height:20px;
+	}
+.parameter li b{
+	color:#303030;
+	font-weight:500;
+	}
+.brand{
+	padding:10px;
+	}
+.brand img{
+	width:100%;
+	}
+.comment{
+	background:#FFF;
+	margin-top:10px;
+	padding:15px 10px;
+	overflow:hidden;
+	}								
+.comment h2{
+	font-weight:500;
+	}
+.comment_info li{
+	padding:8px 0;
+	border-bottom:1px solid #e0e0e0;
+	color:#92959a;
+	overflow:hidden;
+	position:relative;
+	}
+.comment_info li span {
+	display:block;
+	padding-bottom:4px;
+	color:#4c4c4c;
+	}	
+.comment_info li span img{
+	width:25px;
+	height:25px;
+	border-radius:50%;
+	padding:2px;
+	border:1px solid #b6f0ef;
+	margin-right:10px;
+	vertical-align:middle;
+	}
+.comment_info li.comment_info_h span img{
+	border:1px solid #6b80bc;
+	}
+.comment_info li.comment_info_h span,.comment_info li.comment_info_h{
+	color:#6b80bc;
+	}	
+.h5{
+	margin-top:10px;
+	background:#efe5d6;
+	height:450px;
+	line-height:450px;
+	text-align:center;
+	font-size:25px;
+	}	
+.goods_pay{
+	border:none;
+	padding:10px;
+	min-height:0;
+	}
+/*个人信息*/
+.person{
+	margin:0;
+	border-bottom:none;
+	}
+.person_input-wrap{
+	height:44px;
+	line-height:44px;
+	border-bottom:1px solid #e0e0e0;
+	position:relative;
+	}
+.person_input-wrap label{
+	display:inline-block;
+	width:70px;
+	padding-left:10px;
+	color:#85888d
+	}	
+.person_input{
+	width:65%;	
+	}
+.person_input:disabled{
+	background:#FFF;
+	color:#303030;
+	}
+.prompt{
+	text-align: center;
+	color:#85888d;
+	line-height:26px;
+	}
+/*h5信息*/
+.brnner{
+	position:relative;
+	min-height:120px;
+	}
+.brnner img{
+	width:100%;
+	}
+.brnner_txt{
+	position:absolute;
+	bottom:20px;
+	left:0;
+	right:0;
+	background:url(/images/sheSaidImages/ico-2.png) no-repeat center bottom;
+	background-size:100%;
+	color:#FFF;
+	font-size:16px;
+	padding:0 0 7% 3%;	
+	}
+.brnner_txt b{
+	display:inline-block;
+	line-height:56px;
+	font-size:38px;
+	font-weight:500;
+	}		
+.h5_cont{
+	background:#FFF;
+	padding:25px 25px 0;
+	font-size:15px;
+	}
+.h5_cont p{
+	}	
+.h5_cont img{
+	width:100%;
+	margin-top:24px;
+	}
+.h5_user{
+	background:#FFF;
+	text-align:center;
+	}
+.h5_user img{
+	width:36px;
+	height:36px;
+	border-radius:50%;
+	margin-top:15px;
+	}
+.h5_user p{
+	border-top:1px solid #acacac;
+	margin:16px 25px 0;
+	}
+.h5_user p em{
+	position:relative;
+	background:#FFF;
+	top:-11px;
+	padding:0 8px;
+	}
+.h5_status{
+	background:#FFF;
+	padding:0 25px 0 25px;
+	position:relative;
+	overflow:hidden;	
+	}
+.h5_status img{
+	width:100%;
+	margin:14px 0;	
+	}
+.status_img{
+	padding-right:50px;
+	overflow:hidden;
+	}		
+.status_img img{
+	float:left;
+	width:22px;
+	height:22px;
+	border-radius:3px;
+	margin:0 5px 5px 0;
+	}
+.h5_status em{
+	position:absolute;
+	top:0;
+	right:25px;
+	padding:0px 6px 0 20px;
+	background-position:4px -174px;
+	border:1px solid #babac2;
+	border-radius:3px;
+	font-size:12px;
+	}
+.h5_foot{
+	background:#FFF;
+	margin-top:25px;	
+	}
+.h5_price_top{
+	background:#ff314e;
+	color:#FFF;
+	overflow:hidden;
+	padding:0 10px;
+	line-height:24px;
+	}
+.h5_price_top span{
+	float:left;
+	}	
+.h5_price_top em{
+	float: right;
+	}
+.h5_product{
+	padding:12px 12px 0;
+	overflow:hidden;
+	position:relative;
+	}
+.h5_product img{
+	float:left;
+	width:46px;
+	height:46px;
+	border-radius:3px;
+	}
+.h5_product p{
+	margin:0 70px 0 56px;
+	}
+.h5_product em{
+	position:absolute;
+	top:18px;
+	right:14px;
+	color:#ff374d;
+	line-height:30px;
+	}
+.h5_product em b{
+	font-size:28px;
+	font-weight:400;
+	}																																																								
+/*按钮*/			
+.btn{
+	display:inline-block;
+	text-align:center;
+	-webkit-appearance: none;
+    -webkit-box-sizing: content-box;
+	}
+.btn_code,.btn_re,.btn_that{	
+	line-height:30px;
+	width:75px;
+	border-radius:15px;
+	font-size:12px;
+	}
+.btn_code,.btn_re{
+	position: absolute;
+	top:12px;
+	right:0px;
+	border:1px solid #5fb336;
+	color:#5fb336;
+	}	
+.btn_re{
+	border:1px solid #ff314e;
+	color:#ff314e;
+	}	
+.btn_that{
+	position: absolute;
+	top:18px;
+	right:10px;
+	border:1px solid #ff314e;
+	color:#ff314e;
+	border-radius:3px;
+	}	
+.btn_finish{
+	width:100%;
+	background:#ff314e;
+	border-radius:6px;
+	line-height:34px;
+	font-size:15px;
+	color:#FFF;
+	}
+.btn_down{
+	width:80px;
+	line-height:26px;
+	background:#FFF;
+	color:#ff374d;
+	border-radius:3px;
+	border:1px solid #cc2235;
+	margin-top:8px;
+	}
+/*productDetails*/
+
+.container{width:100%;overflow:hidden;}
+.j_product{width:94%;padding:0 3%;color:#92959a;}
+.j_product_title{width:100%;margin:0.5em 0 0 0;background:url(/images/sheSaidImages/j_product_title.gif) repeat-x left bottom;background-size:0.4875em 0.4875em;color:#303030;}
+.mt20{margin-top:1.25em;}
+.j_product_title p{font-family:Didot,Roboto-Medium;font-weight:bold;}
+.j_product_title p span{width:0.9em;height:0.9em;display:inline-block;background:url(/images/sheSaidImages/j_product_title_red.png) no-repeat 0 0;background-size:0.7em 0.7em;position:relative;top:-0.2em;right:-0.1em;border-radius:50%;}
+.j_product_title b{padding:0 0.5em 0.2em 0;display:inline-block;background:#fff;}
+.j_productDetails{line-height:26px;font-size:16px;color:#85888d;}
+.j_productDetails strong{font-weight:normal;font-size:17px;color:#303030;}
+.j_productDetails em{
+display:block;
+width:80px;
+margin:20px auto;
+height:22px;
+padding:0 14px;
+border:1px solid #ececec;
+border-radius:11px;
+font-size:14px;
+line-height:22px;
+color:#303030;
+text-align: center;
+font-style: normal;
+font-weight: 100;
+overflow:hidden;
+}
+/*ip6 fint-size*/
+/*@media screen and (min-width:325px) and (max-width:390px){
+    .j_productDetails{font-size:1.25em;}
+}
+
+/*ip6 plus fint-size*/
+/*@media screen and (min-width:400px){
+    .j_productDetails{font-size:1.3125em;}
+}*/
+
+/*ip6 line-height*/
+/*@media screen and (min-height:600px) and (max-height:700px){
+    .j_productDetails{line-height:2.25em;}
+}*/
+
+/*ip6 plus line-height*/
+/*@media screen and (min-height:700px){
+    .j_productDetails{line-height:3em;}
+}*/
+.j_productDetails img{width:99.9%;margin:1em 0 0em 0;border:1px solid #e8e8e8;}
+.j_productSize{line-height:1.375em;}
+.j_productSize img{width:99.9%;margin:1em 0;}
+.j_product_list{width:100%;background:url(/images/sheSaidImages/j_product_list.gif) repeat-x left bottom;background-size:0.4875em 0.4875em;}
+.j_product_list li{padding:0.9em 0;font-size:16px;background:url(/images/sheSaidImages/j_product_list_line.gif) repeat-x left top;background-size:0.25em 0.125em;}
+/*@media screen and (min-width:325px) and (max-width:390px){
+    .j_product_list li{font-size:1.1875em;}
+}
+@media screen and (min-width:400px){
+    .j_product_list li{font-size:1.3125em;}
+}*/
+.j_product_list li:first-child{background:none;}
+.j_product_list li span{color:#303030;width:72%;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+
+.f20{font-size:1.25em;}

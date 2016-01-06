@@ -1,0 +1,248 @@
+@(pid:String)(count:String)(freetime:String)(fromphone:String)(unionid:String)(iswx:String)@views.html.H5.FreeOne.main{
+<title>免费送！免费送！免费送！828嗨个购大学生海淘节，预热送礼第一弹</title>
+}{
+        <div class="container">
+           <div class="banner">
+              <img src="@assets.CdnAssets.urlForAPIPublic("images/H5/free/banner.jpg")" />
+           </div>
+           <div class="content">
+
+              <div class="number">
+
+                 还剩&nbsp;@Html(count)&nbsp;个
+
+              </div>
+
+              <div class="input-wrap">
+
+                 <input type="tel" id="phone" name="phone" class="input" placeholder="请输入手机号" />
+
+              </div>
+
+              <div class="input-wrap">
+
+                 <div class="input-code">                   
+
+                   <p><input type="tel" id="verify_sms" name="verify_sms" class="input input-w" placeholder="输入验证码" /><a href="javascript:;" class="btn btn_code"><span id="sendsms" name="sendsms" onclick="verifySMS()">发送验证码</span></a></p>                   
+
+                 </div>
+
+              </div>
+
+              <div class="input-wrap">
+
+                 <input type="submit" class="btn" value="立即领取"  onclick="checkuser()">
+
+              </div>
+
+              <div class="goods">
+
+                 <img src="@assets.CdnAssets.urlForAPIPublic("images/H5/free/01.jpg")" />
+
+                 <p class="name"> 
+
+                  韩国gilim蜂蜜黄油杏仁
+
+                 </p>
+
+                 <p>
+
+                   国内售价：<b>25</b> 元
+
+                 </p>
+
+              </div>              
+
+           </div>
+
+           <div class="explain">
+
+              <ul>
+
+                <li>活动时间：@freetime</li>
+
+                <li>每个用户仅能免费领取一件</li>
+
+                <li>若发现刷单等作弊行为，会取消对应用户的活动资格</li>
+
+                <li>本活动最终解释权归嗨个购所有</li>              
+
+              </ul>
+
+           </div>
+
+           <div class="opacity"></div>
+
+           <div class="pup-prize">
+
+              <p>
+
+                <img src="@assets.CdnAssets.urlForAPIPublic("images/H5/free/pup-prize.png")"/>
+
+              </p>
+
+              <p>
+
+                <em>恭喜你免费获得</em><br>
+
+                韩国蜂蜜大杏仁一包                 
+
+              </p>
+
+              <p onclick="golist()">
+
+                <a href="javascript:;" id="pup-prize-btn" class="btn btn_border">确&nbsp;定</a>
+
+              </p>
+
+           </div> 
+
+        </div>
+}{
+<script src="@assets.CdnAssets.urlForAPIPublic("javascripts/sheSaidJs/alert.js")"></script>
+<script>
+		var rphone;
+        var reg = /^1\d{10}$/g; 
+    	var miao = 60;
+    	function verifySMS(){    	
+        	miao=60;
+        	var pho=document.getElementById("phone").value;  
+        	
+        	rphone=pho;
+        	if ($("#phone").val().match(/^((1[0-9]{1})+\d{9})$/)) {
+        		//alert("ok");
+        		time_op();
+        		 $.ajax({
+                //提交数据的类型 POST GET
+                type:"GET",
+                //提交的网址
+                url:"/api/usergetverify?uid=0&reg=0&phone="+pho,
+                //在请求之前调用的函数
+                beforeSend:function(){},
+                //成功返回之后调用的函数            
+                success:function(data){                           
+              		if(data.status=="1"){
+              			_alert("验证码已成功发送!");
+              		}else{
+              			_alert("验证码发送失败!");
+              		}
+                }   ,
+                //调用执行后调用的函数
+                complete: function(XMLHttpRequest, textStatus){
+                },
+                //调用出错执行的函数
+                error: function(){
+                    //请求出错处理
+                    _alert("发送失败!");
+                }        
+             	});   
+             }
+             else{
+            	 _alert("请输入正确的手机号!");
+       			return false;
+             }
+        }
+        
+
+    	function time_op() {
+    		miao--;
+    		if(miao>0){
+    			document.getElementById("sendsms").innerHTML = "发送中"+miao+"s";
+    			document.getElementById("sendsms").onclick="";
+    		}
+    		else
+    		{	
+    			document.getElementById("sendsms").innerHTML = "重新发送";
+    			document.getElementById("sendsms").onclick=function(){verifySMS();};
+    		}
+    		if(miao>0){
+    			setTimeout("time_op()", "1000");
+    		}
+    	}
+    	function checkuser(){
+        	var pho=document.getElementById("phone").value;  	
+        	//alert(pho);
+        	var ver=document.getElementById("verify_sms").value;
+        	var suc=true;
+        	if (!$("#phone").val().match(/^1\d{10}$/g)) {
+        		_alert("请输入正确的手机号");
+        		suc=false;
+        	}
+        	else{
+    	    	if(ver.length<1){
+    	    		suc=false;
+    	    		_alert("请输入验证码")
+    	    	}
+        	}
+        	if(suc){
+        		addpro();  	
+             }
+        }		   
+
+		   //处理4S、4问题
+		   var winH = $(window).height();
+
+		   if( winH < 460 ) {
+
+			   $('input').bind('click',function(e){
+
+					var $this = $(this);
+
+					e.preventDefault();
+
+					setTimeout(function(){
+
+						$(window).scrollTop($this.offset().top - 10);
+
+					},200)
+
+				})
+
+		   }
+		   
+	function addpro(){
+		var vsms=document.getElementById("verify_sms").value;
+		var pho=document.getElementById("phone").value;
+		//alert('@unionid');
+		$.ajax({
+            //提交数据的类型 POST GET
+            type:"POST",
+            //提交的网址
+        url:"/H5/freesd",
+        //提交的数据
+        data:{phone:pho,unionid:'@unionid',fromphone:'@fromphone',vsms:vsms},
+            //返回数据的格式
+            datatype: "json",//"xml", "html", "script", "json", "jsonp", "text"
+            //在请求之前调用的函数
+            beforeSend:function(){},
+            //成功返回之后调用的函数            
+            success:function(data){
+          		if(data.status=="1"){
+          			//返回成功数据
+          			$('.opacity,.pup-prize').fadeIn('slow');
+          		}
+          		else if(data.status=='2'){
+          			_alert(data.msg);
+          		}
+          		else{
+          			//进赠送列表;
+          			$('.opacity,.pup-prize').style='display:none;';
+          			window.location.href='/H5/freelist?iswx=@iswx&fp=@fromphone&unionid=@unionid';
+          			//_alert(data.msg);
+          		}
+            }   ,
+            //调用执行后调用的函数
+            complete: function(XMLHttpRequest, textStatus){
+            },
+            //调用出错执行的函数
+            error: function(){
+                _alert("请检查网络是否通畅!");
+            }        
+         });  
+	}	
+	
+	function golist(){
+		window.location.href='/H5/freelist?iswx=@iswx&fp=@fromphone&unionid=@unionid';
+	}
+        </script> 
+}        

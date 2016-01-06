@@ -1,0 +1,311 @@
+@(uid:String)(leftcount:String)(islogin:Integer)
+<!doctype html>
+<html>    
+
+    <head>
+
+        <meta charset="utf-8">
+
+        <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width" />
+
+        <meta name="format-detection" content="telephone=no" />
+
+        <meta name="format-detection" content="email=no" />
+
+        <meta name="format-detection" content="address=no;">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+        <script type="text/javascript" src="@assets.CdnAssets.urlForAPIPublic("javascripts/sheSaidJs/jquery-2.1.3.min.js")"></script>
+
+        <script type="text/javascript" src="@assets.CdnAssets.urlForAPIPublic("javascripts/sheSaidJs/jQueryRotate.2.2.js")"></script>
+<script src="@assets.CdnAssets.urlForAPIPublic("javascripts/sheSaidJs/alert.js")"></script>
+        <title>
+
+            幸运大转盘
+
+        </title>
+<style>
+/* base */
+
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,div,th,td,dl,dd,form,fieldset,legend,input,textarea,select{ margin:0px; padding:0px; box-sizing: content-box;}
+body{font:14px/20px Microsoft YaHei,helvetica,arial;-webkit-text-size-adjust:100%; background:#a84890; color:#303030;max-width:640px;margin: 0 auto;}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+  display: block;
+  margin:0px; padding:0px; box-sizing: content-box;
+}
+h1,h2,h3,h4,h5,h6,i,samp,strong,span,a,li{;font-size:inherit; font-weight:normal;}
+address,cite,code,em,th,i{font-weight:normal; font-style:normal;} 
+a{color:#2d374b;text-decoration:none;}
+a:hover{text-decoration:none;}
+li{list-style:none}
+img{border:0;vertical-align:middle;}
+table{border-collapse:collapse;border-spacing:0}
+p{word-wrap:break-word;}
+textarea{resize:none;}
+fieldset {border: none;}
+label,a,button,input,textarea{
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	font:14px/20px Microsoft YaHei,helvetica,arial;
+	border:none;
+	outline:none;
+    -webkit-appearance: none;
+    -webkit-box-sizing: content-box;
+}
+
+.container{
+	background:url(@assets.CdnAssets.urlForAPIPublic("images/H5/dazhuanpan/bg.png")) no-repeat top center;
+	background-size:100%;
+	}
+.award{
+	width:270px;
+	height:270px;
+	margin:0 auto;
+	background:url(@assets.CdnAssets.urlForAPIPublic("images/H5/dazhuanpan/awardbg.png")) no-repeat top center;
+	background-size:100%;
+	overflow:hidden;
+	position: relative;
+	}
+#pointer{
+	width:270px;
+	height:270px;
+	}	
+.img {
+	width:100%;
+	}
+.award-info{
+	color:#FFF;
+	padding:10px;
+	background:#a84890;
+	}	
+.award-info h2,.award-info ul{
+	display:block;
+	padding:10px;
+	background:#8a3b76;
+	border-radius:6px;
+	}
+.award-info h2{
+	margin-bottom:10px;
+	font-size:16px;
+	}
+.award-info h2 b{
+	display:inline-block;
+	background:#713061;
+	border-radius:6px;
+	line-height:26px;
+	height:26px;
+	padding:0 8px;
+	vertical-align:middle;
+	margin:0 6px;
+	font-size:18px;
+	}		
+.award-info ul{	
+	padding-left: 30px;
+	}			
+.award-info ul li{
+	padding-bottom:5px;
+	list-style:disc;
+	color:#ffb64d;
+	}
+.award-info ul li:first-child{
+	list-style: none;
+	font-weight:800;
+	}		
+.award-info ul li p{
+	color:#FFF;
+	font-size:12px;
+	}
+.transparent{
+	display:none;
+	position:fixed;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	background:rgba(0,0,0,.5);
+	}		
+.pop{
+	display:none;
+	position:fixed;
+	top:48%;
+	left:18%;
+	width:64%;
+	background:#ffb64d;
+	border-radius:10px;
+	border:2px solid #760c2f;
+	transform:translateY(-50%);
+	}
+.pop-info{
+	padding-top:20px;
+	text-align:center;
+	}
+.pop-info img{
+	width:100%;
+	max-width:400px;
+	}
+.btn-wrap{
+	padding:20px;
+	padding-top:0;
+	}			
+.btn{
+	display:block;
+	width:100%;
+	max-width:400px;
+	margin:0 auto;
+	border:2px solid #960a38;
+	background:#ff3762;
+	line-height:32px;
+	height:32px;
+	font-size:16px;
+	text-align:center;
+	border-radius:6px;
+	color:#FFF;
+	font-weight:800;
+	}
+.pointer{
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;  
+  width:270px;
+  height:270px;
+}		
+</style>
+    </head>
+    <body>
+
+        <div class="container">
+
+            <img src="@assets.CdnAssets.urlForAPIPublic("images/H5/dazhuanpan/01.png")" class="img"/>
+
+            <div class="award">
+
+               <img src="@assets.CdnAssets.urlForAPIPublic("images/H5/dazhuanpan/pointer.png")" id="pointer"/>
+               <img src="@assets.CdnAssets.urlForAPIPublic("images/H5/dazhuanpan/awardbg.png")" class="pointer"/>
+            </div>
+
+            <img src="@assets.CdnAssets.urlForAPIPublic("images/H5/dazhuanpan/02.png")" class="img"/>
+
+            <div class="award-info">
+
+               <h2>今天还有<b id="leftcount">@leftcount</b>次抽奖机会</h2>
+
+               <ul>
+
+                 <li>活动规则</li>
+
+                 <li>
+
+                    <p>每位用户每日两次游戏机会。</p>
+
+                 </li>
+
+                 <li>
+
+                   <p> 所得礼券仅限11月11日、12日使用。</p>
+
+                 </li>
+
+                 <li>
+
+                    <p>每订单仅限使用一张礼券，不与其他优惠同时享用。如发生退货礼券抵用金额不退。</p>
+
+                 </li>
+
+               </ul>
+
+            </div>
+
+        </div>
+
+        <div class="transparent"></div>
+
+        <div class="pop">
+
+            <div class="pop-info">
+
+               <p id="showpop" name="showpop"><img src="@assets.CdnAssets.urlForAPIPublic("images/H5/dazhuanpan/100.png")" /></p>
+
+               <div class="btn-wrap"><a href="javascript:;" class="btn" onclick="hideit()">确  定</a></div>
+
+            </div>
+
+        </div>
+
+        <script>
+        function hideit(){
+        	$('.transparent,.pop').hide();
+        }
+		   var rotateFunc = function(awards,angle){  //awards:奖项，angle:奖项对应的角度，text:提示文字
+			  // alert("awards"+awards+",angle"+angle);
+				$('#pointer').stopRotate();
+				$("#pointer").rotate({
+					angle:0, 
+					duration: 3000, 
+					animateTo: angle+1440, //angle是图片上各奖项对应的角度，1440是让指针旋转4圈
+					callback:function(){
+						$('.transparent,.pop').fadeIn('fast');						
+					}
+				}); 
+			};
+			
+			var m=0;
+			var c=45;
+			var hasact=0;
+			var goact=@leftcount;
+			//alert(hasact);
+		   $(".award").rotate({ 
+			   bind: 
+				 { 
+					click: function(){		
+						@if(islogin==0){
+							window.location.href="userLoginPage://";
+						}else{
+						//rotateFunc(0,45);
+						if(hasact<2 && goact>0){
+							$.ajax({
+								type:"get",
+								url:"/H5/getRandom?uid=@uid",
+								datatype:"json",
+								beforeSend:function(){},
+								success:function(data){
+									document.getElementById("showpop").innerHTML="<img src='"+data.img+"' >";									
+									m=data.money;
+									c=data.cur;		
+									//alert(c);
+									hasact++;
+									var sl=(goact-hasact);
+									if(sl<0)
+										sl=0;
+									document.getElementById("leftcount").innerHTML=sl;
+									rotateFunc(m,c);
+								},
+								complete:function(XZMLZZHttpRequest, textStatus){},
+								error:function(){
+									_alert("请检查网络！");
+								}
+							});	
+						}else{
+							document.getElementById("showpop").innerHTML="<img src='@assets.CdnAssets.urlForAPIPublic("images/H5/dazhuanpan/no.png")' >";
+							$('.transparent,.pop').fadeIn('fast');
+						}
+					}
+				}
+			} 	   
+		});
+        </script> 
+    </body>
+</html>

@@ -1,0 +1,258 @@
+@(endorse:Endorsement)(user:User)(isLike:Integer)(sign:WxSign)(shareType:String)
+@views.html.sheSaid.main{
+
+<title>嗨个购大明星</title>
+}{
+        <div class="container">
+<!-- 
+           <div class="goods_top">
+
+              <img src="@user.getHeadIcon()">
+
+              <p class="goods_top_p">
+              	<em class="color">我是 @user.getNickname()</em>
+              	<span class='color'>我为正品海淘代言</span></p>
+
+              <i href="javascript:;" class="ico_hi"></i>
+
+           </div>
+ -->
+           <div class="brnner">
+			<img src="@endorse.getPreImgPath()">
+              <div class="brnner_txt">
+                 <img src="@user.getHeadIcon()">
+                 <p>我是@user.getNickname()</p>
+              </div>
+              <!-- 
+              @if(endorse.getEndorsImgList()!=null){
+              <img src="@endorse.getEndorsImgList().get(0).getImgPath()">
+}
+
+              <div class="brnner_txt">
+
+                 <img src="../images/sheSaidImages/stamp01.png" id="tzimg" alt="">
+
+              </div>
+ -->
+           </div>
+
+           <div class="h5_cont">
+
+              <p>
+
+                @endorse.getRemark()
+
+              </p>
+
+              <p>
+
+                @if(endorse.getEndorsImgList()!=null){              	
+  				@for(eimg <- endorse.getEndorsImgList()){
+                <img src="@eimg.getImgPath()">
+				}
+				}
+
+              </p>              
+
+           </div>
+           <div class="h5_status">
+
+               <div class="status_img">
+
+                   @if(endorse.getEndorsPraiseList()!=null){
+					@for(pr <- endorse.getEndorsPraiseList()){
+	                   <img src="@pr.getImgPath()">
+					}
+				}
+
+               </div>              
+
+               <div class="h5_like">
+
+                  <em class="h5_like_l">@endorse.getCount()</em>
+
+                  <em class="h5_like_r@if(isLike!=0){  active}" id="praise"@if(isLike==0){ onclick="Praise()"}>@endorse.getCount()</em>
+
+               </div>
+
+           </div>
+
+           <div class="h5_foot">
+
+              <div class="h5_price_top">
+
+                 <span onclick="openshow()" style="cursor:hand">@(endorse.getProducinfo().getRmbprice().toInt-endorse.getProducinfo().getEndorsementPrice().toInt)</span><br>
+
+                 好友代言&nbsp;&nbsp;为您省钱
+
+              </div>
+
+              <div class="h5_product" id="h5_product" name="h5_product" onclick="openshow()">
+
+                 <img src="@endorse.getProducinfo().getListpic()">
+
+                 <p>@endorse.getProducinfo().getTitle()</p>
+
+                 <em>￥<b>@endorse.getProducinfo().getRmbprice().toInt</b></em>
+
+              </div>
+
+              <div class="product_pay">
+
+                 <a href="javascript:;" onclick="openshow()" class="btn btn_finish">去看看</a>
+
+              </div>
+
+           </div>
+
+        </div>
+}{ 
+<script src="@assets.CdnAssets.urlForAPIPublic("javascripts/sheSaidJs/alert.js")"></script>
+<script src="@assets.CdnAssets.urlForAPIPublic("javascripts/sheSaidJs/count.js")"></script>
+<script>
+<!--
+var ua = window.navigator.userAgent.toLowerCase();
+var bw=false;
+var iswx="0";
+if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+	bw=true;
+	iswx="1";
+}else{
+	bw=false;
+}
+var counturl = location.href.split('#')[0];
+//alert(counturl);
+var shareType="@shareType";
+var counttmep=counturl.split('&');
+for(var i=0;i<counttmep.length;i++){
+	if(counttmep[i].indexOf('shareType')>=0)
+		{
+			var t=counttmep[i].split('=');
+			if(t.length>1)
+				shareType=t[1];
+			break;
+		}
+}
+
+var orip;
+jQuery(function($){
+	var url = 'http://chaxun.1616.net/s.php?type=ip&output=json&callback=?&_='+Math.random(); 
+	$.getJSON(url, function(data){
+		orip=data.Ip; 
+		//添加统计
+		addcountdy(data.Ip,counturl,shareType,iswx,'daiyan','@user.getUid()','@endorse.getEid()');
+	});
+});
+
+
+
+function openshow(){
+	var sst='';
+	@if(shareType!=""){
+		sst='&st=@shareType';
+	}
+	if(bw==true)
+		window.location.href='/sheSaid/show?uid=@user.getUid()&pid=@endorse.getProducinfo().getPid()&daiyanid=@endorse.getEid()&wx=1'+sst;
+	else
+		window.location.href='/sheSaid/show?uid=@user.getUid()&pid=@endorse.getProducinfo().getPid()&daiyanid=@endorse.getEid()'+sst;
+}
+
+function Praise(){
+	if(bw==true)
+		window.location.href="/sheSaid/wxauth?uid=@user.getUid()&pid=@endorse.getProducinfo().getPid()&daiyanid=@endorse.getEid()&flg=praise&shareType=@shareType";
+	else
+		window.location.href="/sheSaid/login?uid=@user.getUid()&pid=@endorse.getProducinfo().getPid()&daiyanid=@endorse.getEid()&flg=praise&shareType=@shareType";
+}
+
+
+/*var n = 10;
+function randomPic(){
+	var pic = document.getElementById("tzimg");
+	var num = Math.ceil(Math.random()*n);
+	var picurl="@assets.CdnAssets.urlForAPIPublic("images/sheSaidImages/")";
+	pic.src = picurl+ num +".png")";
+}
+randomPic();
+*/
+
+var likes='@isLike';
+var hb=false;
+if(likes=="2" && hb==false){
+	_alert("您已经点过赞了");
+}
+if(likes=="1" && hb==false){
+	//_alert("点赞成功+1");
+	dzcg();
+}
+//alert(history.go(-1).length);
+
+function dzcg(){
+	var cont = '<div class="zambia"><img src="@assets.CdnAssets.urlForAPIPublic("images/sheSaidImages/ico-6.png")"></div>';
+    $('.zambia').remove();    
+    $('body').append(cont);
+    setTimeout(function(){
+   $('.zambia').remove(); 
+    },1800) 
+}
+//-->
+</script>
+
+  @if(sign!=null){
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+
+var linkurl=location.href.split('#')[0];
+  wx.config({
+    debug: false,
+    appId: '@sign.getAppId()',
+    timestamp: '@sign.getTimstr()',
+    nonceStr: '@sign.getNostr()',
+    signature: '@sign.getSign()',
+    jsApiList: ['checkJsApi',
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage'
+    ]
+  });
+	wx.ready(function () {
+    // 1 判断当前版本是否支持指定 JS 接口，支持批量判断
+		wx.checkJsApi({
+		  jsApiList: [
+			'getNetworkType',
+			'previewImage'
+		  ],
+		  success: function (res) {
+			//alert(JSON.stringify(res));
+		  }
+		});
+		wx.onMenuShareTimeline({
+			title: '@sign.getSharetitle()', // 分享标题
+		    link: '@sign.getShareurl()', // 分享链接
+		    imgUrl: '@sign.getShareimg()', // 分享图标
+		    success: function () { 
+		        // 用户确认分享后执行的回调函数
+		    },
+		    cancel: function () { 
+		        // 用户取消分享后执行的回调函数
+		    }
+		});
+
+		wx.onMenuShareAppMessage({
+			  title: '@sign.getSharetitle()',
+			  desc: '@sign.getSharecontent()',
+			  link: '@sign.getShareurl()',
+			  imgUrl: '@sign.getShareimg()',
+			  success: function (res) {
+				//alert('已分享');
+			  },
+			  cancel: function (res) {
+				//alert('已取消');
+			  }
+		  });
+  });
+  wx.error(function (res){
+		//alert(res.errMsg);
+  });
+</script>
+}
+
+}

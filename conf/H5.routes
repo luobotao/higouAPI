@@ -1,0 +1,122 @@
+GET		/star120									controllers.api.H5ProductController.star120()
+POST	/login_code									@controllers.api.H5ProductController.login_code()
+
+GET     /login                           			@controllers.api.H5ProductController.login()
+GET		/ordersuccess								@controllers.api.H5ProductController.saveorderend()
+GET		/wxpayh5									@controllers.api.H5ProductController.wxpayh5()
+GET		/alipay										@controllers.api.H5ProductController.alipay()
+GET		/alipayreturn								@controllers.api.H5ProductController.alipayreturn()
+POST	/reguser									@controllers.api.H5ProductController.reguser()
+GET		/add_address								@controllers.api.H5ProductController.editaddress()
+GET		/add_addresspro								@controllers.api.H5ProductController.editaddrespro()
+POST	/saveaddress								@controllers.api.H5ProductController.saveaddress()
+POST	/saveaddressbbt								@controllers.api.H5ProductController.saveaddressbbt()
+POST	/saveaddresspro								@controllers.api.H5ProductController.saveaddresspro()
+POST	/saveOrderAddress							@controllers.api.H5ProductController.saveOrderAddress()
+GET		/zeroturn									@controllers.api.H5ProductController.zeroturn()
+POST	/getsignstr									controllers.api.H5ProductController.getsignstri()
+GET		/wxauthpro									@controllers.api.H5ProductController.wxauthpro()
+GET		/vokewxpro									@controllers.api.H5ProductController.vokewxpro()
+POST	/checkimgVerify								@controllers.api.H5ProductController.checkimgVerify()
+
+#H5
+GET		/loginpro									@controllers.api.H5ProductController.loginpro()
+GET     /orderpro                          			@controllers.api.H5ProductController.orderpro()
+GET     /pro                           				controllers.api.H5ProductController.pro()
+GET     /product                           			@controllers.api.H5ProductController.product()
+GET		/orderxpro									@controllers.api.H5ProductController.orderxpro()
+GET		/orderprocart								@controllers.api.H5ProductController.orderprocart
+GET		/vokewxprocart								@controllers.api.H5ProductController.vokewxprocart
+GET		/wxauthprocart								@controllers.api.H5ProductController.wxauthprocart
+POST	/addshoppingCart							@controllers.api.H5ProductController.addshoppingCart
+POST	/shoppingCart_edit							@controllers.api.H5ProductController.shoppingCart_edit
+POST	/shoppingCart_del							@controllers.api.H5ProductController.shoppingCart_del
+GET		/orderprocartcrm							@controllers.api.H5ProductController.orderprocartcrm
+
+GET		/11uhBipZ									@controllers.api.H5ProductController.showit()
+GET		/26rVDeJl									@controllers.api.H5ProductController.showit()
+GET		/81WwtFTD									@controllers.api.H5ProductController.showit()
+GET		/75WvneHV									@controllers.api.H5ProductController.showit()
+GET		/70Jnvpoz									@controllers.api.H5ProductController.showit()
+GET		/70dTgbPV									@controllers.api.H5ProductController.showit()
+GET		/70guELTi									@controllers.api.H5ProductController.showit()
+GET		/70JVKNId									@controllers.api.H5ProductController.showit()
+GET		/70dgxUgX									@controllers.api.H5ProductController.showit()
+GET		/70EHzyUe									@controllers.api.H5ProductController.showit()
+POST	/saveimg									controllers.api.H5ProductController.saveimg()
+GET		/saveimg									controllers.api.H5ProductController.saveimg()
+POST	/userVerify									@controllers.api.H5ProductController.userVerifysms
+
+#invite
+GET		/endorse_rule								controllers.api.H5ProductController.endorse_rule
+GET		/balancerule								controllers.api.H5ProductController.balancerule
+GET		/invite										controllers.api.H5ProductController.invite
+POST	/adduserconpone								@controllers.api.H5ProductController.adduserconpone
+GET		/inviteok									@controllers.api.H5ProductController.inviteok
+
+#act1
+#GET		/friendnew									@controllers.api.ActivatorController.friendnew
+GET		/sharefriend								@controllers.api.ActivatorController.sharefriend
+#GET		/friendlogin								@controllers.api.ActivatorController.friendlogin
+#GET		/friendcoupon								@controllers.api.ActivatorController.friendcoupon
+#GET		/choujiang									@controllers.api.ActivatorController.cj
+#GET		/tj											@controllers.api.ActivatorController.tj
+#POST	/updateluck										@controllers.api.ActivatorController.updateluck
+
+#Fee Act One
+#GET			/freeauth									@controllers.api.ActivatorController.freeauth
+GET			/freeauth									controllers.api.ActivatorController.freelimit
+#GET			/freeget									@controllers.api.ActivatorController.getFree
+GET			/freeget									controllers.api.ActivatorController.freelimit
+GET			/freelist									@controllers.api.ActivatorController.freelist			
+#GET			/vokeFree									@controllers.api.ActivatorController.vokeFree
+#GET			/vokeFree									controllers.api.ActivatorController.freelimit
+#GET			/freewxauth									controllers.api.ActivatorController.freewxauth
+#POST		/freeadd									@controllers.api.ActivatorController.sd
+#GET			/freerecieve								@controllers.api.ActivatorController.freeget
+#POST		/freeclientget								@controllers.api.ActivatorController.freeAuthClien
+#POST		/freesd										@controllers.api.ActivatorController.savefree
+
+#LongAct
+GET			/loginact									@controllers.api.ActivatorController.loginact
+POST		/getlogsign									@controllers.api.ActivatorController.getloginsign
+
+#duoshou juan
+GET			/getdscoupon								@controllers.api.ActivatorController.getdscoupon
+POST		/getcouonsv									@controllers.api.ActivatorController.getcouonsave
+GET			/sendcouplist								@controllers.api.ActivatorController.getdscouponlist
+
+#Free Act Two
+#GET			/freetwoauth								@controllers.api.ActivatorController.freetwoauth
+GET			/freetwoauth									controllers.api.ActivatorController.freelimit
+#GET			/freetwoget									@controllers.api.ActivatorController.freetwoget
+GET				/freetwoget									controllers.api.ActivatorController.freelimit
+#POST		/savefreetwo									@controllers.api.ActivatorController.savefreetwo
+#GET			/freetwolist								@controllers.api.ActivatorController.savefreetwosuc
+GET			/freetwolist									controllers.api.ActivatorController.freelimit
+#GET			/vokeFreetwo								@controllers.api.ActivatorController.vokeFreetwo
+GET			/vokeFreetwo									controllers.api.ActivatorController.freelimit
+#GET			/freetwowxauth								controllers.api.ActivatorController.freetwowxauth
+GET			/freetwowxauth									controllers.api.ActivatorController.freelimit
+
+#bangbangtang
+#GET		    /bbtpro										@controllers.api.ActivatorController.bbtpro
+#GET		    /bbtpro_dawanglu							@controllers.api.ActivatorController.bbtpro_dawanglu
+#POST		/bbtorder									@controllers.api.ActivatorController.sendBBTOrder
+#GET     	/showbbt                           			@controllers.api.H5ProductController.showbbt()
+#GET			/bbtsync									controllers.api.H5ProductController.bbtsync()
+#GET     	/showbbtdwl                           		@controllers.api.H5ProductController.showbbtdwl()
+#GET			/downbbt									@controllers.api.H5ProductController.downbbt()
+#GET			/downbbtyh									@controllers.api.H5ProductController.downbbtyh()
+
+GET			/prolist									@controllers.api.H5ShoppingController.getProlist()
+GET			/prolistJson								@controllers.api.H5ShoppingController.getProlistJson()
+#GET			/wxauthaddress							@controllers.api.H5ShoppingController.wxauthaddress()
+GET			/dazhuanpan									controllers.api.H5ShoppingController.dazhuanpan()
+GET			/getRandom									controllers.api.H5ShoppingController.getRandom()
+GET			/wxauth_address								controllers.api.H5ShoppingController.wxauth_address()
+GET			/order_address								@controllers.api.H5ShoppingController.order_address()
+GET			/shoplist									@controllers.api.H5ShoppingController.getIndexProlist()
+GET			/shoplistJson								@controllers.api.H5ShoppingController.getshoplistJson()
+
+GET			/christmas									@controllers.api.ActivatorController.christmas()

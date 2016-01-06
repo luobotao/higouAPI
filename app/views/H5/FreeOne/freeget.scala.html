@@ -1,0 +1,80 @@
+@(uid:String)(islogin:String)(acttim:String)@views.html.H5.FreeOne.main{
+<title>828嗨个购大学生海淘节</title>
+}{
+<div class="container">
+           <div class="banner">
+              <img src="@assets.CdnAssets.urlForAPIPublic("images/H5/free/banner-2.jpg")">
+              <a href="javascript:;" class="btn" onclick="getit()">去领取</a>    
+           </div>
+           <div class="contnet">
+              <div class="explain explainbg">
+                <div>
+                  <b>方法一:</b>
+                   <p>
+                     参照@@嗨个购海淘 置顶<br>
+                     微博活动<br>
+                   </p>
+                </div>
+                <div>
+                 <b>方法二:</b>
+                 <p>
+                   关注微信公众账号 rihanlingjuli<br>
+                   (日韩零距离)回复“嗨个购”<br>
+                 </p>
+                </div>  
+              </div>
+              <div class="explain">
+                 <ul>
+                  <li>活动时间：@acttim</li>
+                  <li>每个用户仅能免费领取一件</li>
+                  <li>若发现刷单等作弊行为，会取消对应用户的活动资格</li>
+                  <li>本活动最终解释权归嗨个购所有</li>              
+                </ul>
+              </div>
+           </div>
+        </div>
+        <div class="opacity"></div>
+        <div class="pup-tip">
+           <img src="@assets.CdnAssets.urlForAPIPublic("images/H5/free/pup-tip.png")"/>
+        </div>
+}{
+<script src="@assets.CdnAssets.urlForAPIPublic("javascripts/sheSaidJs/alert.js")"></script>
+        <script>
+        function getit(){
+        	@if(uid==null || islogin==null || islogin!="1"){
+        		window.location.href="userLoginPage://";
+        	}
+        	@if(uid!=null && islogin=="1"){
+    		$.ajax({
+                //提交数据的类型 POST GET
+                type:"POST",
+                //提交的网址
+            url:"/H5/freeclientget",
+            //提交的数据
+            data:{uid:'@uid'},
+                //返回数据的格式
+                datatype: "json",//"xml", "html", "script", "json", "jsonp", "text"
+                //在请求之前调用的函数
+                beforeSend:function(){},
+                //成功返回之后调用的函数            
+                success:function(data){
+              		if(data.status=="1"){
+              			window.location.href='pDe://higegou?pid='+data.pid;
+              		}
+              		else{
+              			//进赠送列表;
+              			_alert(data.msg);
+              		}
+                }   ,
+                //调用执行后调用的函数
+                complete: function(XMLHttpRequest, textStatus){
+                },
+                //调用出错执行的函数
+                error: function(){
+                    _alert("请检查网络是否通畅!");
+                }        
+             });  
+        	}
+    	}	
+        </script>
+}

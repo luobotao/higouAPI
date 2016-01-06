@@ -1,0 +1,13 @@
+@views.html.sheSaid.main{
+
+<title>个人中心</title>
+
+}{
+<form action="/api/uploadcardimg" enctype="multipart/form-data" method="post">
+
+   		uid:<input type="text" id="uid" name="uid"/>
+   		addressId:<input type="text" id="addressId" name="addressId"/>
+   		file:<input type="file" id="file" name="file"/>
+   		<button type="submit">提交</button>
+</form>
+}{ }

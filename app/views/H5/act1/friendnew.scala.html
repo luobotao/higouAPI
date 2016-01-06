@@ -1,0 +1,132 @@
+@(wx:WxSign)(plist:List[List[String]])(wu:WxUser)@views.html.H5.act1.main{
+<title>嗨个购抽奖送礼</title>
+}{
+<div class="container">
+            <div class="banner">
+               <img src="@assets.CdnAssets.urlForAPIPublic("images/H5/act1/banner.jpg")" />
+               <div class="banner_info">
+                  <div class="banner_txt">
+                     <img src="@wu.getHeadicon()">
+                     <p>我是@wu.getNickname()</p>
+                  </div>
+                  <p>
+                    嗨个购免费送你全球商品<br>
+					请选择您想要的一款商品
+                  </p>
+               </div>
+            </div>
+            <div class="product">
+            <form name="form1" id="form1" method="post" action="/H5/choujiang">
+            	<input type="hidden" id="pid" name="pid" value="" />
+               <ul>
+               @for(p <- plist){
+                   <li>
+                     <img src="@p.get(1)" />
+                     <p class="name">@p.get(2)</p>
+                     <div class="product_price">
+                        <p><label><input name="radio" type="radio" class="radio" value="@p.get(0)"/><i class="ico_iwant"></i></label></p>
+                        <p>￥<b>@p.get(3)</b></p>
+                     </div>
+                   </li>
+                }                
+               </ul>
+               </form>
+            </div>
+            <div class="btn_warp">
+                <a href="javascript:;" class="btn btn_w10">我要了</a>
+            </div>
+        </div>
+        <div class="opacity"></div>
+        <div class="pup_goods">
+            <p><img src="@assets.CdnAssets.urlForAPIPublic("images/H5/act1/pup-1.jpg")" /></p>
+            <a href="javascript:;" class="btn" id="close">确定</a>   
+        </div> 
+}{
+<script>
+           $(function(){
+			   $('.ico_iwant').on('click',function(){
+				   $('.ico_iwant').removeClass('active');
+				   $(this).addClass('active');
+			   })
+			   
+			   $('.btn_w10').on('click',function(){
+				   var val = $('.radio:checked').val();
+				   if (val == '' || val == undefined){
+					  $('.opacity,.pup_goods').fadeIn('slow');
+				   } else {
+					   //微信鉴权
+					  //alert('可以提交数据：' + val);
+					  var u=encodeURI("http://ht.neolix.cn/H5/actauth.php?pid="+val);			          						          
+			          window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx99199cff15133f37&redirect_uri="+u+"&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect";
+					  //document.getElementById("pid").value=val;
+					 // document.getElementById("form1").submit();
+				   }
+			   });
+			   $('#close').on('click',function(){
+				   $('.opacity,.pup_goods').fadeOut('slow');
+			   })
+			   
+		  })
+        </script> 
+<script src="@assets.CdnAssets.urlForAPIPublic("javascripts/sheSaidJs/count.js")"></script>        
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+var counturl = location.href.split('#')[0];
+//添加统计
+addcount('',counturl,'0','1','friendshareIndex','@wu.getUnionid()');
+  wx.config({
+    debug: false,
+    appId: '@wx.getAppId()',
+    timestamp: '@wx.getTimstr()',
+    nonceStr: '@wx.getNostr()',
+    signature: '@wx.getSign()',
+    jsApiList: ['checkJsApi',
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage'
+    ]
+  });
+	wx.ready(function () {
+    // 1 判断当前版本是否支持指定 JS 接口，支持批量判断
+		wx.checkJsApi({
+		  jsApiList: [
+			'getNetworkType',
+			'previewImage'
+		  ],
+		  success: function (res) {
+			//alert(JSON.stringify(res));
+		  }
+		});
+		wx.onMenuShareTimeline({
+		    title: '@wx.getSharetitle()', // 分享标题
+		    link: '@wx.getShareurl()', // 分享链接
+		    imgUrl: '@wx.getShareimg()', // 分享图标
+		    success: function () { 
+		        // 用户确认分享后执行的回调函数
+		    	//添加统计
+				addcount('',counturl,'0','1','friendshare','@wu.getUnionid()');
+		    },
+		    cancel: function () { 
+		        // 用户取消分享后执行的回调函数
+		    }
+		});
+
+		wx.onMenuShareAppMessage({
+			  title: '@wx.getSharetitle()',
+			  desc: '@wx.getSharecontent()',
+			  link: '@wx.getShareurl()',
+			  imgUrl: '@wx.getShareimg()',
+			  success: function (res) {
+				//alert('已分享');
+				//添加统计
+					addcount('',counturl,'0','1','friendshare','@wu.getUnionid()');
+			  },
+			  cancel: function (res) {
+				//alert('已取消');
+			  }
+		  });
+  });
+  wx.error(function (res){
+		//alert(res.errMsg);
+  });
+</script>         
+}
